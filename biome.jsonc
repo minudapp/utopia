@@ -2,13 +2,20 @@
   "$schema": "https://biomejs.dev/schemas/2.1.1/schema.json",
   "extends": ["ultracite"],
   "files": {
-    "includes": ["!**/*.css"]
+    "includes": ["**", "!**/*.css"]
   },
   "linter": {
+    "domains": {
+      "next": "recommended",
+      "react": "recommended"
+    },
     "rules": {
       "performance": {
-        "noNamespaceImport": "info"
+        "noNamespaceImport": "warn"
       }
     }
+  },
+  "javascript": {
+    "jsxRuntime": "transparent"
   }
 }
