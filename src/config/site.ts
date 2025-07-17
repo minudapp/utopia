@@ -1,3 +1,5 @@
+import { env } from "./env/client";
+
 export interface SiteConfig {
   title: string;
   description: string;
@@ -20,10 +22,10 @@ export const siteConfig = Object.freeze({
   title: "My Site",
   description: "A sample site configuration",
   keywords: ["example", "site", "config"],
-  url: "https://www.example.com",
+  url: env.NEXT_PUBLIC_APP_URL,
   author: {
     name: "George Vlassis",
   },
-  ogImage: "https://www.example.com/og-image.png",
+  ogImage: `${env.NEXT_PUBLIC_APP_URL}/og-image.png`,
   social: {},
 }) satisfies SiteConfig;

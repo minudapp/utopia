@@ -41,7 +41,7 @@ function FormField({
   return (
     <FormFieldContext.Provider value={{ name, error, id }}>
       <div
-        data-slot="form-item"
+        data-slot="form-field"
         className={cn("grid gap-2", className)}
         {...props}
       >
@@ -63,7 +63,7 @@ function useFormField() {
     id,
     name,
     error,
-    formItemId: `${id}-form-item`,
+    formFieldId: `${id}-form-field`,
     formDescriptionId: `${id}-form-item-description`,
     formMessageId: `${id}-form-item-message`,
   };
@@ -73,26 +73,26 @@ function FormLabel({
   className,
   ...props
 }: React.ComponentProps<typeof LabelPrimitive.Root>) {
-  const { error, formItemId } = useFormField();
+  const { error, formFieldId } = useFormField();
   return (
     <Label
       data-slot="form-label"
       data-error={!!error}
       className={cn("data-[error=true]:text-destructive", className)}
-      htmlFor={formItemId}
+      htmlFor={formFieldId}
       {...props}
     />
   );
 }
 
 function FormControl(props: React.ComponentProps<typeof Slot>) {
-  const { error, formItemId, formDescriptionId, formMessageId } =
+  const { error, formFieldId, formDescriptionId, formMessageId } =
     useFormField();
 
   return (
     <Slot
       data-slot="form-control"
-      id={formItemId}
+      id={formFieldId}
       aria-describedby={
         !error ? formDescriptionId : `${formDescriptionId} ${formMessageId}`
       }
@@ -141,7 +141,7 @@ function FormFieldset({
   return (
     <fieldset
       data-slot="form-fieldset"
-      className={cn("border rounded p-4", className)}
+      className={cn("rounded border p-4", className)}
       {...props}
     />
   );
