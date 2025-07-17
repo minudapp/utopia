@@ -11,11 +11,6 @@ export interface SiteConfig {
     email?: string;
     url?: string;
   };
-  social?: {
-    twitter?: string;
-    github?: string;
-    linkedin?: string;
-  };
 }
 
 export const siteConfig = Object.freeze({
@@ -27,5 +22,4 @@ export const siteConfig = Object.freeze({
     name: "George Vlassis",
   },
   ogImage: `${env.NEXT_PUBLIC_APP_URL}/og-image.png`,
-  social: {},
 }) satisfies SiteConfig;
