@@ -1,3 +1,5 @@
+// Source: https://github.com/edmundhung/conform/blob/main/packages/conform-zod/v4/constraint.ts
+
 import type { $ZodType, $ZodTypes, $ZodNumber, $ZodString } from "zod/v4/core";
 
 export type Constraint = {
