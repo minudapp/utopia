@@ -4,7 +4,7 @@ const EnvSchema = z.object({
   NODE_ENV: z.enum(["development", "production", "test"]),
   APP_URL: z.url(),
   LOG_LEVEL: z
-    .enum(["debug", "info", "warn", "error", "fatal"])
+    .enum(["fatal", "error", "warn", "info", "debug", "trace"])
     .default("info"),
 });
 
