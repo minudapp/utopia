@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
 
-const boxVariants = cva("", {
+const boxVariants = cva("flex", {
   variants: {
     variant: {
       default: "",
@@ -15,24 +15,24 @@ const boxVariants = cva("", {
   },
 });
 
-type BoxProps = React.ComponentProps<"div"> &
-  VariantProps<typeof boxVariants> & {
-    asChild?: boolean;
-  };
-
-export function Box({
+function Box({
   variant,
   className,
   asChild = false,
   ...props
-}: BoxProps) {
+}: React.ComponentProps<"div"> &
+  VariantProps<typeof boxVariants> & {
+    asChild?: boolean;
+  }) {
   const Comp = asChild ? Slot : "div";
 
   return (
     <Comp
       data-slot="box"
-      className={cn(boxVariants({ variant }), className)}
+      className={cn(boxVariants({ variant, className }))}
       {...props}
     />
   );
 }
+
+export { Box, boxVariants };

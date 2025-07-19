@@ -5,10 +5,8 @@ import { PageContainer } from "@/components/shared/page-container";
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Paragraph } from "@/components/ui/paragraph";
-import { env } from "@/config/env/client";
 
 export default function HomePage() {
-  console.log(env.NEXT_PUBLIC_APP_URL);
   return (
     <PageContainer>
       <section className="py-20">
