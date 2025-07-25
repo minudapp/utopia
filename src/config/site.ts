@@ -1,6 +1,6 @@
 import { env } from "./env/client";
 
-export interface SiteConfig {
+export type SiteConfig = {
   title: string;
   description: string;
   keywords: string[];
@@ -11,7 +11,7 @@ export interface SiteConfig {
     email?: string;
     url?: string;
   };
-}
+};
 
 export const siteConfig = Object.freeze({
   title: "My Site",
