@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-import { logger } from "@/lib/logger";
 import { isDevelopment } from "@/utils/environment";
+import { formDataToObject } from "@/utils/transformations";
 import { tryAsync } from "@/utils/try-async";
 import type { FormAction, ValidatedFormAction } from "./types";
 
@@ -10,9 +10,8 @@ export function formAction<TSchema extends z.core.$ZodType, TActionResult>(
   action: ValidatedFormAction<TSchema, TActionResult>,
 ): FormAction<TSchema, TActionResult> {
   return async (_prevState, formData) => {
-    const rawValues = Object.fromEntries(
-      formData.entries(),
-    ) as z.input<TSchema>;
+    const rawValues = formDataToObject<z.input<TSchema>>(formData);
+
     const validationResult = z.safeParse(schema, rawValues);
     if (!validationResult.success) {
       return {
@@ -30,7 +29,7 @@ export function formAction<TSchema extends z.core.$ZodType, TActionResult>(
       {
         onError(error) {
           if (isDevelopment()) {
-            logger.error(error);
+            console.error(error);
           }
         },
       },
