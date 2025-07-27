@@ -1,16 +1,19 @@
 import { unstable_rethrow } from "next/navigation";
 
 import { BaseError, isBaseError, isError } from "./errors";
+import { isUndefined } from "./guards";
 
-function success<TData>(data: TData): ResultTuple<TData> {
-  return [data, null];
+type Result<TData> =
+  | { success: true; data: TData }
+  | { success: false; error: BaseError };
+
+function success<TData>(data: TData): Result<TData> {
+  return { success: true, data };
 }
 
-function failure<TData>(error: BaseError): ResultTuple<TData> {
-  return [null, error];
+function failure<TData>(error: BaseError): Result<TData> {
+  return { success: false, error };
 }
-
-type ResultTuple<TData> = [TData, null] | [null, BaseError];
 
 type Options = {
   onError?: (error: BaseError) => void;
@@ -21,10 +24,10 @@ type Options = {
 export async function tryAsync<TData>(
   promise: Promise<TData>,
   options: Options = {},
-): Promise<ResultTuple<TData>> {
+): Promise<Result<TData>> {
   try {
     const data = await promise;
-    if (options.onSuccess) {
+    if (!isUndefined(options.onSuccess)) {
       options.onSuccess(data);
     }
 

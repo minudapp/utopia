@@ -13,19 +13,19 @@ export function formAction<TSchema extends z.core.$ZodType, TActionResult>(
     const rawValues = Object.fromEntries(
       formData.entries(),
     ) as z.input<TSchema>;
-    const parsedInput = z.safeParse(schema, rawValues);
-    if (!parsedInput.success) {
+    const validationResult = z.safeParse(schema, rawValues);
+    if (!validationResult.success) {
       return {
         status: "error",
-        fieldErrors: z.flattenError(parsedInput.error).fieldErrors,
+        fieldErrors: z.flattenError(validationResult.error).fieldErrors,
         fieldValues: rawValues,
       };
     }
 
-    const [data, error] = await tryAsync(
+    const actionResult = await tryAsync(
       action({
         formData,
-        input: parsedInput.data,
+        input: validationResult.data,
       }),
       {
         onError(error) {
@@ -36,17 +36,17 @@ export function formAction<TSchema extends z.core.$ZodType, TActionResult>(
       },
     );
 
-    if (error) {
+    if (!actionResult.success) {
       return {
         status: "error",
-        error: error.message,
+        error: actionResult.error.message,
         fieldValues: rawValues,
       };
     }
 
     return {
       status: "success",
-      data,
+      data: actionResult.data,
     };
   };
 }
