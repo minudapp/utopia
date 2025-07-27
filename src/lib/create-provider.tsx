@@ -51,7 +51,7 @@ export function createProvider<State>(initialState: State) {
     selector: (store: State) => SelectorOutput,
   ): SelectorOutput {
     const context = useContext(StoreContext);
-    if (isNull(context)) {
+    if (isNull(context) || isUndefined(context)) {
       throw new Error("Store not found");
     }
 
@@ -64,7 +64,7 @@ export function createProvider<State>(initialState: State) {
 
   function useDispatch(): Store<State>["setSnapshot"] {
     const context = useContext(StoreContext);
-    if (isNull(context)) {
+    if (isNull(context) || isUndefined(context)) {
       throw new Error("Store not found");
     }
 
