@@ -1,5 +1,7 @@
 import { useRef, createContext, useContext, useSyncExternalStore } from "react";
 
+import { isNull, isUndefined } from "@/utils/guards";
+
 function createStore<State>(initialState: State) {
   let state = initialState;
   const listeners = new Set<() => void>();
@@ -38,7 +40,7 @@ export function createProvider<State>(initialState: State) {
     value?: State;
   }) {
     const storeRef = useRef<Store<State>>(null);
-    if (storeRef.current === null) {
+    if (isNull(storeRef.current)) {
       storeRef.current = createStore<State>({ ...initialState, ...value });
     }
 
@@ -49,7 +51,7 @@ export function createProvider<State>(initialState: State) {
     selector: (store: State) => SelectorOutput,
   ): SelectorOutput {
     const context = useContext(StoreContext);
-    if (!context) {
+    if (isNull(context) || isUndefined(context)) {
       throw new Error("Store not found");
     }
 
@@ -62,7 +64,7 @@ export function createProvider<State>(initialState: State) {
 
   function useDispatch(): Store<State>["setSnapshot"] {
     const context = useContext(StoreContext);
-    if (!context) {
+    if (isNull(context) || isUndefined(context)) {
       throw new Error("Store not found");
     }
 
@@ -104,7 +106,7 @@ export function createCollectionProvider<Resource>(initialState: {
   ) {
     const resource = useSelector((state) => {
       const resource = state.collection[key];
-      if (!resource) {
+      if (isUndefined(resource)) {
         // This should never happen if the collection is properly managed
         // and the key exists in the collection.
         throw new Error(`Resource with key "${key}" not found in collection`);

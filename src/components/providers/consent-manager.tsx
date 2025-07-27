@@ -3,6 +3,7 @@
 import { createContext, useCallback, useContext, useState } from "react";
 
 import { CookieBanner } from "@/components/shared/cookie-banner";
+import { isNull, isUndefined } from "@/utils/guards";
 
 type ConsentManagerContextProps = {
   isConsentGiven: boolean;
@@ -52,7 +53,7 @@ export function ConsentManagerProvider({
 
 export function useConsentManager() {
   const context = useContext(ConsentManagerContext);
-  if (!context) {
+  if (isNull(context) || isUndefined(context)) {
     throw new Error(
       "useConsentManager must be used within a ConsentManagerProvider",
     );

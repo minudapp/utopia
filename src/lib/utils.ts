@@ -1,6 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+import { isString } from "@/utils/guards";
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -16,7 +18,7 @@ export function arrayToObject<
   return array.reduce<Record<string, Item>>((acc, item) => {
     const key = item[identifier];
 
-    if (typeof key !== "string") {
+    if (!isString(key)) {
       throw new Error(
         `Identifier "${String(identifier)}" must be a string property`,
       );

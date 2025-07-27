@@ -1,5 +1,6 @@
 import type { $ZodType } from "zod/v4/core";
 
+import { isUndefined } from "@/utils/guards";
 import type { FormAction } from "./types";
 
 export type Callbacks<TActionResult> = {
@@ -16,11 +17,15 @@ export function withCallbacks<TSchema extends $ZodType, TActionResult>(
 
     const state = await promise;
 
-    if (state.status === "success" && callbacks.onSuccess) {
+    if (state.status === "success" && !isUndefined(callbacks.onSuccess)) {
       callbacks.onSuccess(state.data);
     }
 
-    if (state.status === "error" && callbacks.onError && state.error) {
+    if (
+      state.status === "error" &&
+      state.error &&
+      !isUndefined(callbacks.onError)
+    ) {
       callbacks.onError(state.error);
     }
 
