@@ -80,13 +80,6 @@ type Identifier = string;
 
 type Collection<Resource> = Record<Identifier, Resource>;
 
-function isCollectionKey<Resource>(
-  collection: Collection<Resource>,
-  key: Identifier,
-): key is keyof Collection<Resource> {
-  return Object.hasOwn(collection, key);
-}
-
 export function createCollectionProvider<Resource>(initialState: {
   collection: Collection<Resource>;
 }) {
