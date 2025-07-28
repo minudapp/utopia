@@ -8,7 +8,7 @@ import type { FormAction } from "@/lib/action/types";
 
 export function useFormAction<TSchema extends $ZodType, TActionResult>(
   action: FormAction<TSchema, TActionResult>,
-  callbacks: Callbacks<TActionResult> = {},
+  callbacks: Callbacks<TSchema, TActionResult> = {},
 ) {
   return useActionState(withCallbacks(action, callbacks), null);
 }

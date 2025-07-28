@@ -16,8 +16,11 @@ export function formAction<TSchema extends z.core.$ZodType, TActionResult>(
     if (!validationResult.success) {
       return {
         status: "error",
-        fieldErrors: z.flattenError(validationResult.error).fieldErrors,
         fieldValues: rawValues,
+        error: {
+          type: "validation",
+          fieldErrors: z.flattenError(validationResult.error).fieldErrors,
+        },
       };
     }
 
@@ -38,8 +41,11 @@ export function formAction<TSchema extends z.core.$ZodType, TActionResult>(
     if (!actionResult.success) {
       return {
         status: "error",
-        error: actionResult.error.message,
         fieldValues: rawValues,
+        error: {
+          type: "server",
+          message: actionResult.error.message,
+        },
       };
     }
 
