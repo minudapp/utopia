@@ -159,11 +159,11 @@ function FormLegend({ className, ...props }: React.ComponentProps<"legend">) {
 
 export {
   Form,
-  FormField,
-  FormLabel,
   FormControl,
   FormDescription,
-  FormMessage,
+  FormField,
   FormFieldset,
+  FormLabel,
   FormLegend,
+  FormMessage,
 };

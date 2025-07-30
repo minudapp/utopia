@@ -1,45 +1,48 @@
 import type { $ZodFlattenedError, $ZodType, input, output } from "zod/v4/core";
 
-export type FormActionSuccess<TData> = {
+export type FormActionSuccess<Output> = {
   status: "success";
-  data: TData;
+  data: Output;
 };
 
-export type FormActionValidationError<TSchema extends $ZodType> = {
+export type FormActionValidationError<Schema extends $ZodType> = {
   status: "error";
-  fieldValues: input<TSchema>;
+  fieldValues: input<Schema>;
   error: {
     type: "validation";
-    fieldErrors: $ZodFlattenedError<output<TSchema>>["fieldErrors"];
+    fieldErrors: $ZodFlattenedError<output<Schema>>["fieldErrors"];
   };
 };
 
-export type FormActionServerError<TSchema extends $ZodType> = {
+export type FormActionServerError<Schema extends $ZodType> = {
   status: "error";
-  fieldValues: input<TSchema>;
+  fieldValues: input<Schema>;
   error: {
     type: "server";
     message: string;
   };
 };
 
-export type FormActionError<TSchema extends $ZodType> =
-  | FormActionValidationError<TSchema>
-  | FormActionServerError<TSchema>;
+export type FormActionError<Schema extends $ZodType> =
+  | FormActionValidationError<Schema>
+  | FormActionServerError<Schema>;
 
-export type FormActionState<TSchema extends $ZodType, TData> =
-  | FormActionSuccess<TData>
-  | FormActionError<TSchema>;
+export type FormActionState<Schema extends $ZodType, Output> =
+  | FormActionSuccess<Output>
+  | FormActionError<Schema>;
 
-export type FormAction<TSchema extends $ZodType, TActionResult> = (
-  prevState: FormActionState<TSchema, TActionResult> | null,
+export type FormAction<Schema extends $ZodType, Output> = (
+  prevState: FormActionState<Schema, Output> | null,
   formData: FormData,
-) => Promise<FormActionState<TSchema, TActionResult>>;
+) => Promise<FormActionState<Schema, Output>>;
 
-export type ValidatedFormAction<TSchema extends $ZodType, TActionResult> = ({
-  formData,
+export type ValidatedFormAction<Schema extends $ZodType, Output> = ({
   input,
 }: {
-  formData: FormData;
-  input: output<TSchema>;
-}) => Promise<TActionResult>;
+  input: output<Schema>;
+}) => Promise<Output>;
+
+export type FormActionOptions<Schema extends $ZodType, Output> = {
+  onSuccess?: (data: Output) => void;
+  onError?: (error: FormActionError<Schema>["error"]) => void;
+};

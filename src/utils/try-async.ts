@@ -3,28 +3,27 @@ import { unstable_rethrow } from "next/navigation";
 import { BaseError, isBaseError, isError } from "./errors";
 import { isUndefined } from "./guards";
 
-type Result<TData> =
-  | { success: true; data: TData }
+type Result<Output> =
+  | { success: true; data: Output }
   | { success: false; error: BaseError };
 
-function success<TData>(data: TData): Result<TData> {
+function success<Output>(data: Output): Result<Output> {
   return { success: true, data };
 }
 
-function failure<TData>(error: BaseError): Result<TData> {
+function failure<Output>(error: BaseError): Result<Output> {
   return { success: false, error };
 }
 
-type Options = {
+type Options<Output> = {
   onError?: (error: BaseError) => void;
-  onSuccess?: <TData>(data: TData) => void;
-  logError?: boolean;
+  onSuccess?: (data: Output) => void;
 };
 
-export async function tryAsync<TData>(
-  promise: Promise<TData>,
-  options: Options = {},
-): Promise<Result<TData>> {
+export async function tryAsync<Output>(
+  promise: Promise<Output>,
+  options: Options<Output> = {},
+): Promise<Result<Output>> {
   try {
     const data = await promise;
     if (!isUndefined(options.onSuccess)) {
@@ -35,18 +34,17 @@ export async function tryAsync<TData>(
   } catch (error) {
     unstable_rethrow(error);
 
-    if (options.logError) {
-      console.error(error);
+    const err = isBaseError(error)
+      ? error
+      : new BaseError(
+          isError(error) ? error.message : "An unknown error occurred",
+          error,
+        );
+
+    if (!isUndefined(options.onError)) {
+      options.onError(err);
     }
 
-    if (isBaseError(error)) {
-      return failure(error);
-    }
-
-    if (isError(error)) {
-      return failure(new BaseError(error.message, error));
-    }
-
-    return failure(new BaseError("An unknown error occurred", error));
+    return failure(err);
   }
 }

@@ -2,11 +2,14 @@ import { cn } from "@/lib/utils";
 
 type PageContainerTag = "main" | "div";
 
-type PageContainerProps<Tag extends PageContainerTag> = {
+type PageContainerOwnProps<Tag extends PageContainerTag> = {
   as?: Tag;
-  className?: string;
   children: React.ReactNode;
 };
+
+type PageContainerProps<Tag extends PageContainerTag> =
+  PageContainerOwnProps<Tag> &
+    Omit<React.ComponentPropsWithoutRef<Tag>, keyof PageContainerOwnProps<Tag>>;
 
 export function PageContainer<Tag extends PageContainerTag = "main">({
   as,
