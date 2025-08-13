@@ -2,8 +2,8 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-import { Header } from "@/components/shared/header";
-import { geistMono, geistSans } from "@/config/fonts";
+import { Loader } from "@/components/loader";
+import { merriweather, poppins } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -52,13 +52,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          geistSans.variable,
-          geistMono.variable,
+          merriweather.variable,
+          poppins.variable,
           "min-h-svh antialiased",
         )}
       >
-        <Header />
-        {children}
+        <Loader>{children}</Loader>
         <Analytics />
       </body>
     </html>
