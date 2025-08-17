@@ -54,10 +54,11 @@ export default function RootLayout({
         className={cn(
           merriweather.variable,
           poppins.variable,
-          "min-h-svh antialiased",
+          "relative antialiased",
         )}
       >
-        <Loader>{children}</Loader>
+        <Loader />
+        {children}
         <Analytics />
       </body>
     </html>
