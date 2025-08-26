@@ -3,7 +3,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 import { Loader } from "@/components/loader";
-import { merriweather, poppins } from "@/config/fonts";
+import { Footer } from "@/components/shared/footer";
+import { Header } from "@/components/shared/header";
+import { geistMono, geistSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -36,7 +38,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   maximumScale: 1,
-  colorScheme: "dark light",
+  colorScheme: "dark",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#fff" },
     { media: "(prefers-color-scheme: dark)", color: "#000" },
@@ -49,16 +51,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          merriweather.variable,
-          poppins.variable,
-          "relative antialiased",
+          geistMono.variable,
+          geistSans.variable,
+          "relative font-sans antialiased",
         )}
       >
+        <Header />
         <Loader />
         {children}
+        <Footer />
         <Analytics />
       </body>
     </html>
