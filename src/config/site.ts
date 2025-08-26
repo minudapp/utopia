@@ -1,4 +1,6 @@
-import { env } from "./env/client";
+// import { env } from "./env/client";
+
+const url = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 export type SiteConfig = {
   title: string;
@@ -17,9 +19,9 @@ export const siteConfig = Object.freeze({
   title: "My Site",
   description: "A sample site configuration",
   keywords: ["example", "site", "config"],
-  url: env.NEXT_PUBLIC_APP_URL,
+  url: url,
   author: {
     name: "George Vlassis",
   },
-  ogImage: `${env.NEXT_PUBLIC_APP_URL}/og-image.png`,
+  ogImage: `${url}/og-image.png`,
 }) satisfies SiteConfig;

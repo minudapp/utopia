@@ -1,7 +1,7 @@
 import "server-only";
 import pino from "pino";
 
-import { env } from "@/config/env/server";
+// import { env } from "@/config/env/server";
 import { isDevelopment } from "@/utils/environment";
 
 function getTransport() {
@@ -20,7 +20,7 @@ function getTransport() {
 }
 
 export const logger = pino({
-  level: env.LOG_LEVEL,
+  level: "info",
   timestamp: pino.stdTimeFunctions.isoTime,
   formatters: {
     level: (label) => {
