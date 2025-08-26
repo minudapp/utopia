@@ -6,11 +6,12 @@ import { useCallback, useState } from "react";
 import { Preloader } from "./preloader";
 import { ProgressBar } from "./progress-bar";
 
-const DURATION = 3000;
+const DURATION = 2000;
 const TRANSITION_DELAY = 100;
 
 export function Loader() {
-  const [isVisible, setIsVisible] = useState(true);
+  // const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   const onComplete = useCallback(() => {
     const timeout = setTimeout(() => {

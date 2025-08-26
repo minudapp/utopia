@@ -55,19 +55,20 @@ export function Form() {
         </div>
 
         <div className="relative">
-          <div className="flex items-center rounded-lg border border-gray-600 bg-gray-700/50">
+          <div className="border-input data-focus-within:border-ring data-focus-within:ring-ring/50 data-focus-within:has-aria-invalid:ring-destructive/20 dark:data-focus-within:has-aria-invalid:ring-destructive/40 data-focus-within:has-aria-invalid:border-destructive relative inline-flex h-9 w-full items-center overflow-hidden rounded-md border text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none data-disabled:opacity-50 data-focus-within:ring-[3px]">
             <Button
               type="button"
               variant="ghost"
               size="sm"
-              className="rounded-l-lg"
+              // className="rounded-l-lg"
+              className="border-input bg-background text-muted-foreground/80 hover:bg-accent hover:text-foreground -ms-px flex aspect-square h-[inherit] items-center justify-center rounded-s-md border text-sm transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
               onClick={decrementAmount}
             >
-              <MinusIcon className="h-4 w-4" />
+              <MinusIcon className="size-4" />
             </Button>
             <Input
               ref={inputRef}
-              type="number"
+              inputMode="numeric"
               step="0.01"
               min="0.01"
               max="200"
@@ -78,10 +79,11 @@ export function Form() {
               type="button"
               variant="ghost"
               size="sm"
-              className="rounded-r-lg"
+              // className="rounded-r-lg"
+              className="border-input bg-background text-muted-foreground/80 hover:bg-accent hover:text-foreground -ms-px flex aspect-square h-[inherit] items-center justify-center rounded-s-md border text-sm transition-[color,box-shadow] disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
               onClick={incrementAmount}
             >
-              <PlusIcon className="h-4 w-4" />
+              <PlusIcon className="size-4" />
             </Button>
           </div>
         </div>

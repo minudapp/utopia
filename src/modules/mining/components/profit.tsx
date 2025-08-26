@@ -1,13 +1,17 @@
 "use client";
 
 import { Card, CardContent } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
 
-export function Profit() {
+export function Profit({
+  className,
+  ...props
+}: React.ComponentProps<typeof Card>) {
   // TODO: Fetch these values from the contract
 
   return (
-    <Card>
-      <CardContent className="p-4">
+    <Card className={cn("py-3", className)} {...props}>
+      <CardContent className="px-3">
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <span className="font-bold">DAILY PROFIT:</span>

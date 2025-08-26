@@ -18,7 +18,5 @@ export function PageContainer<Tag extends PageContainerTag = "main">({
 }: PageContainerProps<Tag>) {
   const Comp = as || "main";
 
-  return (
-    <Comp className={cn("min-h-(--page-height) py-12", className)} {...props} />
-  );
+  return <Comp className={cn("min-h-(--page-height)", className)} {...props} />;
 }
