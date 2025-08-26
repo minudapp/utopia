@@ -1,6 +1,6 @@
 // import { env } from "./env/client";
 
-const url = "https://example.com";
+const url = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 export type SiteConfig = {
   title: string;
