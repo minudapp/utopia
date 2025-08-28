@@ -187,7 +187,7 @@ function WalletConnecting() {
             width={116}
             height={116}
           />
-          <img />
+          {/* <img /> */}
           {context.isConnectorError ? <RetryConnectorButton /> : null}
         </div>
       )}
