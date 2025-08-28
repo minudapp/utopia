@@ -1,13 +1,13 @@
 import { PageContainer } from "@/components/shared/page-container";
-import { Features } from "@/modules/landing/components/features";
+import { About } from "@/modules/landing/components/about";
 import { Hero } from "@/modules/landing/components/hero";
 import { Integrations } from "@/modules/landing/components/integrations";
 
-export default function HomePage() {
+export default function LandingPage() {
   return (
     <PageContainer>
       <Hero />
-      <Features />
+      <About />
       <Integrations />
     </PageContainer>
   );
