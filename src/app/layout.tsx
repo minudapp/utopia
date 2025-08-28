@@ -3,8 +3,6 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 import { Loader } from "@/components/loader";
-import { Footer } from "@/components/shared/footer";
-import { Header } from "@/components/shared/header";
 import { geistMono, geistSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -59,10 +57,8 @@ export default function RootLayout({
           "relative font-sans antialiased",
         )}
       >
-        <Header />
         <Loader />
         {children}
-        <Footer />
         <Analytics />
       </body>
     </html>

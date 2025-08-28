@@ -10,8 +10,7 @@ const DURATION = 2000;
 const TRANSITION_DELAY = 100;
 
 export function Loader() {
-  // const [isVisible, setIsVisible] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const onComplete = useCallback(() => {
     const timeout = setTimeout(() => {

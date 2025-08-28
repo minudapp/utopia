@@ -251,7 +251,6 @@ function WalletOption({
       disabled={!ready}
       onClick={onClick}
       size="lg"
-      variant="secondary"
       className="justify-between px-4 py-7 text-base font-semibold"
     >
       <p>{connector.name}</p>

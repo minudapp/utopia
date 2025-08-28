@@ -1,60 +1,48 @@
 "use client";
 
-import { CoinsIcon, PickaxeIcon, TrendingUpIcon } from "lucide-react";
-import { useAccount } from "wagmi";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
 
 export function Stats() {
-  const { isConnected } = useAccount();
+  const { isConnected } = useWeb3Modal();
 
-  const userStats = isConnected
-    ? {
-        miners: "42",
-        miningSpeed: "1.25",
-        rewards: "0.0847",
-      }
-    : {
-        miners: "0",
-        miningSpeed: "0",
-        rewards: "0.0000",
-      };
+  const stats = [
+    {
+      title: "Mining Daily Profit",
+      value: "8%",
+      description: "Daily percentage rate",
+    },
+    {
+      title: "Total staked",
+      value: "9,876,543",
+      description: "PUDGY tokens staked",
+    },
+    {
+      title: "stPUDGY price",
+      value: "$1.032",
+      description: "Current market price",
+    },
+  ];
 
   return (
-    <div className="mb-6 space-y-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500">
-            <PickaxeIcon className="h-4 w-4 text-white" />
-          </div>
-          <span className="font-medium text-white">Miners</span>
-        </div>
-        <span className="text-xl font-bold text-orange-400">
-          {userStats.miners}
-        </span>
-      </div>
-
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500">
-            <TrendingUpIcon className="h-4 w-4 text-white" />
-          </div>
-          <span className="font-medium text-white">Mining Speed</span>
-        </div>
-        <span className="text-xl font-bold text-orange-400">
-          {userStats.miningSpeed} BNB/24h
-        </span>
-      </div>
-
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-500">
-            <CoinsIcon className="h-4 w-4 text-white" />
-          </div>
-          <span className="font-medium text-white">My rewards</span>
-        </div>
-        <span className="text-xl font-bold text-orange-400">
-          {userStats.rewards} BNB
-        </span>
-      </div>
+    <div className="space-y-4">
+      {stats.map((stat, index) => (
+        <Card key={index}>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-muted-foreground text-sm font-medium">
+              {stat.title}
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="pt-0">
+            <div className="text-foreground mb-1 text-2xl font-bold">
+              {stat.value}
+            </div>
+            <div className="text-muted-foreground text-xs">
+              {stat.description}
+            </div>
+          </CardContent>
+        </Card>
+      ))}
     </div>
   );
 }

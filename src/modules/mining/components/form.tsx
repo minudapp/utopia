@@ -88,9 +88,7 @@ export function Form() {
           </div>
         </div>
 
-        <p className="text-center text-sm">
-          ENTER BNB AMOUNT & CLICK BUY BELOW
-        </p>
+        <p className="text-center text-sm">ENTER BNB AMOUNT & HIRE MINERS</p>
       </div>
 
       <div className="mt-6 space-y-3">

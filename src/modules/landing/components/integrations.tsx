@@ -1,3 +1,6 @@
+import danceData from "@/assets/lottie/dance.json";
+import shopData from "@/assets/lottie/shop.json";
+import { LottieAnimation } from "@/components/shared/lottie-animation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
@@ -41,7 +44,7 @@ export function Integrations() {
   return (
     <section className="relative overflow-hidden px-4 py-24">
       {/* Arctic gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-emerald-900 opacity-95" />
+      <div className="from-muted to-background absolute inset-0 bg-radial to-75%" />
 
       {/* Floating ice crystals */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -66,7 +69,7 @@ export function Integrations() {
           {integrations.map((integration) => (
             <Card
               key={integration.name}
-              className="group cursor-pointer border-white/20 bg-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-emerald-400/50 hover:bg-white/15"
+              className="group hover:border-primary/75 cursor-default border-white/20 bg-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:bg-white/15"
             >
               <div className="flex items-center gap-3 p-4">
                 <div className="text-2xl transition-transform duration-300 group-hover:scale-110">
@@ -75,12 +78,12 @@ export function Integrations() {
                 <div className="flex-1">
                   <Heading
                     variant="h3"
-                    className="text-lg font-bold transition-colors group-hover:text-emerald-300"
+                    className="group-hover:text-primary text-lg font-bold transition-colors"
                   >
                     {integration.name}
                   </Heading>
                 </div>
-                <div className="size-2 rounded-full bg-emerald-400 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="bg-primary size-2 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               </div>
             </Card>
           ))}
@@ -96,6 +99,20 @@ export function Integrations() {
             Explore Partnerships
           </Button>
         </div>
+      </div>
+      <div className="absolute -bottom-12 left-6 hidden w-96 md:block">
+        <LottieAnimation
+          animationData={danceData}
+          id="dance"
+          className="**:nth-[2]:fill-white"
+        />
+      </div>
+      <div className="hidden: absolute right-20 -bottom-14 w-80 md:block">
+        <LottieAnimation
+          animationData={shopData}
+          id="shop"
+          className="**:nth-[2]:fill-white"
+        />
       </div>
     </section>
   );
