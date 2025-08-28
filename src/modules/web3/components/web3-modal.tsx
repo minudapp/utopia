@@ -42,9 +42,9 @@ interface Web3ModalProps extends BaseProps {
 
 const Web3Modal = ({ children, ...props }: RootWeb3ModalProps) => {
   const isMobile = useIsMobile();
-  const Web3Modal = isMobile ? Drawer : Dialog;
+  const Component = isMobile ? Drawer : Dialog;
 
-  return <Web3Modal {...props}>{children}</Web3Modal>;
+  return <Component {...props}>{children}</Component>;
 };
 
 const Web3ModalTrigger = ({
@@ -53,23 +53,23 @@ const Web3ModalTrigger = ({
   ...props
 }: Web3ModalProps) => {
   const isMobile = useIsMobile();
-  const Web3ModalTrigger = isMobile ? DrawerTrigger : DialogTrigger;
+  const Component = isMobile ? DrawerTrigger : DialogTrigger;
 
   return (
-    <Web3ModalTrigger className={className} {...props}>
+    <Component className={className} {...props}>
       {children}
-    </Web3ModalTrigger>
+    </Component>
   );
 };
 
 const Web3ModalClose = ({ className, children, ...props }: Web3ModalProps) => {
   const isMobile = useIsMobile();
-  const Web3ModalClose = isMobile ? DrawerClose : DialogClose;
+  const Component = isMobile ? DrawerClose : DialogClose;
 
   return (
-    <Web3ModalClose className={className} {...props}>
+    <Component className={className} {...props}>
       {children}
-    </Web3ModalClose>
+    </Component>
   );
 };
 
@@ -79,10 +79,10 @@ const Web3ModalContent = ({
   ...props
 }: Web3ModalProps) => {
   const isMobile = useIsMobile();
-  const Web3ModalContent = isMobile ? DrawerContent : DialogContent;
+  const Component = isMobile ? DrawerContent : DialogContent;
 
   return (
-    <Web3ModalContent
+    <Component
       className={cn(
         "rounded-t-3xl sm:rounded-3xl md:max-w-[360px] [&>button]:top-[26px] [&>button]:right-[26px]",
         className,
@@ -91,7 +91,7 @@ const Web3ModalContent = ({
       {...props}
     >
       {children}
-    </Web3ModalContent>
+    </Component>
   );
 };
 
@@ -101,37 +101,34 @@ const Web3ModalDescription = ({
   ...props
 }: Web3ModalProps) => {
   const isMobile = useIsMobile();
-  const Web3ModalDescription = isMobile ? DrawerDescription : DialogDescription;
+  const Component = isMobile ? DrawerDescription : DialogDescription;
 
   return (
-    <Web3ModalDescription className={className} {...props}>
+    <Component className={className} {...props}>
       {children}
-    </Web3ModalDescription>
+    </Component>
   );
 };
 
 const Web3ModalHeader = ({ className, children, ...props }: Web3ModalProps) => {
   const isMobile = useIsMobile();
-  const Web3ModalHeader = isMobile ? DrawerHeader : DialogHeader;
+  const Component = isMobile ? DrawerHeader : DialogHeader;
 
   return (
-    <Web3ModalHeader
-      className={cn("space-y-0 pb-6 md:pb-3", className)}
-      {...props}
-    >
+    <Component className={cn("space-y-0 pb-6 md:pb-3", className)} {...props}>
       {children}
-    </Web3ModalHeader>
+    </Component>
   );
 };
 
 const Web3ModalTitle = ({ className, children, ...props }: Web3ModalProps) => {
   const isMobile = useIsMobile();
-  const Web3ModalTitle = isMobile ? DrawerTitle : DialogTitle;
+  const Component = isMobile ? DrawerTitle : DialogTitle;
 
   return (
-    <Web3ModalTitle className={cn("text-center", className)} {...props}>
+    <Component className={cn("text-center", className)} {...props}>
       {children}
-    </Web3ModalTitle>
+    </Component>
   );
 };
 
@@ -151,12 +148,12 @@ const Web3ModalBody = ({ className, children, ...props }: Web3ModalProps) => {
 
 const Web3ModalFooter = ({ className, children, ...props }: Web3ModalProps) => {
   const isMobile = useIsMobile();
-  const Web3ModalFooter = isMobile ? DrawerFooter : DialogFooter;
+  const Component = isMobile ? DrawerFooter : DialogFooter;
 
   return (
-    <Web3ModalFooter className={cn("py-3.5 md:py-0", className)} {...props}>
+    <Component className={cn("py-3.5 md:py-0", className)} {...props}>
       {children}
-    </Web3ModalFooter>
+    </Component>
   );
 };
 
