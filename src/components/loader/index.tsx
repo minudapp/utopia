@@ -3,6 +3,7 @@
 import { AnimatePresence } from "motion/react";
 import { useCallback, useState } from "react";
 
+import { Logo } from "@/components/shared/logo";
 import { Preloader } from "./preloader";
 import { ProgressBar } from "./progress-bar";
 
@@ -24,7 +25,10 @@ export function Loader() {
     <AnimatePresence mode="wait">
       {isVisible && (
         <Preloader>
-          <ProgressBar duration={DURATION} onComplete={onComplete} />
+          <div className="flex w-full flex-col items-center gap-8">
+            <Logo className="w-20" />
+            <ProgressBar duration={DURATION} onComplete={onComplete} />
+          </div>
         </Preloader>
       )}
     </AnimatePresence>
