@@ -5,37 +5,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ConnectWalletButton } from "@/modules/web3/components/connect-wallet-button";
 import { Logo } from "./logo";
-
-function Nav({ className, ...props }: React.ComponentProps<"nav">) {
-  return (
-    <nav
-      className={cn("hidden items-center space-x-6 md:flex", className)}
-      {...props}
-    >
-      <Button
-        variant="link"
-        className="hover:bg-primary hover:text-primary-foreground hover:no-underline"
-        asChild
-      >
-        <Link href="#features">Features</Link>
-      </Button>
-      <Button
-        variant="link"
-        className="hover:bg-primary hover:text-primary-foreground hover:no-underline"
-        asChild
-      >
-        <Link href="#community">Community</Link>
-      </Button>
-      <Button
-        variant="link"
-        className="hover:bg-primary hover:text-primary-foreground hover:no-underline"
-        asChild
-      >
-        <Link href="#roadmap">Roadmap</Link>
-      </Button>
-    </nav>
-  );
-}
+import { Nav } from "./nav";
 
 type HeaderProps = React.ComponentProps<"header"> & {
   type: "app" | "marketing";
@@ -44,27 +14,42 @@ type HeaderProps = React.ComponentProps<"header"> & {
 export function Header({ type, className, ...props }: HeaderProps) {
   return (
     <header
+      style={
+        type === "marketing"
+          ? ({ "--header-height": "6rem" } as React.CSSProperties)
+          : {}
+      }
       className={cn(
-        "border-border bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky inset-x-0 top-0 z-50 flex h-(--header-height) w-full items-center justify-center border-b backdrop-blur",
+        "flex h-(--header-height) w-full items-center justify-center bg-[#2b90cc]",
         className,
       )}
       {...props}
     >
       <Box variant="container" className="flex items-center justify-between">
-        <Link href="/" className="flex items-center">
-          <Logo />
-        </Link>
-
         {type === "marketing" && (
           <>
             <Nav />
-            <Button asChild>
+            <Link href="/" className="flex items-center">
+              <Logo className="w-16" />
+            </Link>
+            <Button
+              className="border-background border-2 text-base font-semibold"
+              size="xl"
+              asChild
+            >
               <Link href="/dapp">Join the Adventure</Link>
             </Button>
           </>
         )}
 
-        {type === "app" && <ConnectWalletButton />}
+        {type === "app" && (
+          <>
+            <Link href="/" className="flex items-center">
+              <Logo />
+            </Link>
+            <ConnectWalletButton />
+          </>
+        )}
       </Box>
     </header>
   );

@@ -49,7 +49,7 @@ export function Preloader({ children }: { children: React.ReactNode }) {
       variants={slideUpVariants}
       initial="initial"
       exit="exit"
-      className="bg-foreground fixed z-999 flex h-svh w-screen cursor-wait items-center justify-center"
+      className="fixed z-999 flex h-svh w-screen cursor-wait items-center justify-center bg-[#00142d]"
     >
       {dimension.width > 0 && (
         <>
@@ -66,7 +66,7 @@ export function Preloader({ children }: { children: React.ReactNode }) {
               variants={curveVariants}
               initial="initial"
               exit="exit"
-              className="fill-foreground"
+              className="fill-[#00142d]"
             />
           </svg>
         </>
