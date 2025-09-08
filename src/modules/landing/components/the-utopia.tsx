@@ -1,14 +1,13 @@
 "use client";
 
-import theHuddleData from "@/assets/lottie/thehuddle.json";
+import theUtopiaData from "@/assets/lottie/the-utopia.json";
 import { LottieAnimation } from "@/components/shared/lottie-animation";
 
-export function TheHuddle() {
+export function TheUtopia() {
   return (
     <LottieAnimation
-      id="the-huddle"
-      animationData={theHuddleData}
-      loop={false}
+      id="the-utopia"
+      animationData={theUtopiaData}
       className="**:nth-[2]:fill-white"
     />
   );
