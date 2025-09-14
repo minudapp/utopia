@@ -99,8 +99,8 @@ export function Integrations() {
         {/* Call to Action */}
         <div className="mt-12 text-center">
           <Paragraph className="mx-auto max-w-2xl text-lg">
-            Join the growing ecosystem of Pudgy Penguins integrations. Build
-            with us and become part of the colony!
+            Join the growing ecosystem of Utopia integrations. Build with us and
+            become part of the colony!
           </Paragraph>
           {/* <Button className="hover:shadow-primary/25 mt-6 rounded-full px-8 py-4 hover:scale-105 hover:shadow-lg">
             Explore Partnerships
