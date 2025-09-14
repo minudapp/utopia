@@ -1,10 +1,8 @@
 "use client";
 
-import bounceData from "@/assets/lottie/bounce.json";
-import discoVikingData from "@/assets/lottie/disco-viking.json";
-import guitarData from "@/assets/lottie/guitar.json";
+import dolphinData from "@/assets/lottie/dolphin.json";
+import parrotData from "@/assets/lottie/parrot.json";
 import pudgyPenguinsData from "@/assets/lottie/pudgy-penguins.json";
-// import { PudgyPenguinsIcon } from "@/components/icons/pudgy-penguins";
 import { LottieAnimation } from "@/components/shared/lottie-animation";
 import { Heading } from "@/components/ui/heading";
 import { Paragraph } from "@/components/ui/paragraph";
@@ -13,7 +11,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="bg-secondary text-secondary-foreground relative px-4 py-24"
+      className="bg-secondary text-secondary-foreground relative px-4 py-20"
     >
       <div className="relative z-1 mx-auto grid w-full max-w-6xl grid-cols-1 content-center gap-10 md:grid-cols-2">
         <Heading variant="h2">
@@ -42,26 +40,11 @@ export function About() {
           </Paragraph>
         </div>
       </div>
-      <div className="hidden: absolute -bottom-6 left-0 w-96 md:block">
-        <LottieAnimation
-          animationData={bounceData}
-          id="bounce"
-          className="**:nth-[2]:fill-white"
-        />
+      <div className="absolute bottom-0 hidden w-96 md:left-1/8 md:block">
+        <LottieAnimation animationData={dolphinData} id="dolphin" />
       </div>
-      <div className="hidden: absolute -bottom-9 left-1/3 w-80 md:block">
-        <LottieAnimation
-          animationData={discoVikingData}
-          id="disco-viking"
-          className="**:nth-[2]:fill-white"
-        />
-      </div>
-      <div className="hidden: absolute right-10 -bottom-2 w-56 md:block">
-        <LottieAnimation
-          animationData={guitarData}
-          id="guitar"
-          className="**:nth-[2]:fill-white"
-        />
+      <div className="absolute -bottom-4 hidden w-64 md:right-1/8 md:block">
+        <LottieAnimation animationData={parrotData} id="parrot" />
       </div>
     </section>
   );

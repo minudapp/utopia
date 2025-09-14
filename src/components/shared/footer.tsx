@@ -6,13 +6,12 @@ import { Logo } from "./logo";
 export function Footer() {
   return (
     <footer className="bg-card border-border border-t py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid gap-8 md:grid-cols-4">
-          <div className="space-y-4">
-            <Logo className="justify-start" />
+      <div className="container mx-auto max-w-5xl px-4">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
+          <div className="col-span-2 flex flex-col gap-4">
+            <Logo className="h-full w-24 object-contain" />
             <Paragraph className="text-sm">
-              The coolest penguin community in the NFT space. Join our arctic
-              adventure today!
+              The coolest utopia community. Join our arctic adventure today!
             </Paragraph>
           </div>
 
@@ -91,9 +90,8 @@ export function Footer() {
         </div>
 
         <div className="border-border mt-8 border-t pt-8">
-          <Paragraph className="text-center text-sm">
-            © 2024 Pudgy Penguins. All rights reserved. Made with ❄️ by the
-            penguin community.
+          <Paragraph className="mx-auto text-center text-sm">
+            © {new Date().getFullYear()} Utopia. All rights reserved.
           </Paragraph>
         </div>
       </div>

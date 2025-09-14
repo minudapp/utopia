@@ -107,7 +107,7 @@ export function Integrations() {
           className="**:nth-[2]:fill-white"
         />
       </div>
-      <div className="hidden: absolute right-20 -bottom-14 w-80 md:block">
+      <div className="absolute right-20 -bottom-14 hidden w-80 md:block">
         <LottieAnimation
           animationData={shopData}
           id="shop"

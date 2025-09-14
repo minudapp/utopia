@@ -25,15 +25,18 @@ export function Header({ type, className, ...props }: HeaderProps) {
       )}
       {...props}
     >
-      <Box variant="container" className="flex items-center justify-between">
+      <Box
+        variant="container"
+        className="flex items-center justify-between gap-3"
+      >
         {type === "marketing" && (
           <>
             <Nav />
             <Link href="/" className="flex items-center">
-              <Logo className="w-16" />
+              <Logo className="md:w-16" />
             </Link>
             <Button
-              className="border-background border-2 text-base font-semibold"
+              className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
               size="xl"
               asChild
             >

@@ -24,7 +24,7 @@ export function Nav() {
     <Drawer direction="top">
       <DrawerTrigger asChild>
         <Button
-          className="border-background border-2 text-base font-semibold"
+          className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
           size="xl"
         >
           Menu
@@ -53,19 +53,19 @@ export function Nav() {
           <div className="mt-10 grid grid-cols-1 items-center gap-6 p-6 md:grid-cols-3">
             <nav className="md:col-span-2">
               <ul className="grid grid-cols-2 gap-3">
-                <li className="text-2xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] md:text-3xl xl:text-5xl">
+                <li className="text-xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] sm:text-2xl md:text-3xl xl:text-5xl">
                   <Link href="#">The Team</Link>
                 </li>
-                <li className="text-2xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] md:text-3xl xl:text-5xl">
+                <li className="text-xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] sm:text-2xl md:text-3xl xl:text-5xl">
                   <Link href="#">Shop</Link>
                 </li>
-                <li className="text-2xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] md:text-3xl xl:text-5xl">
+                <li className="text-xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] sm:text-2xl md:text-3xl xl:text-5xl">
                   <Link href="#">Pengu Lore</Link>
                 </li>
-                <li className="text-2xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] md:text-3xl xl:text-5xl">
+                <li className="text-xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] sm:text-2xl md:text-3xl xl:text-5xl">
                   <Link href="#">Igloo Brand</Link>
                 </li>
-                <li className="text-2xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] md:text-3xl xl:text-5xl">
+                <li className="text-xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] sm:text-2xl md:text-3xl xl:text-5xl">
                   <Link href="#">Buy $Pengu</Link>
                 </li>
               </ul>
@@ -113,7 +113,7 @@ export function Nav() {
               </Link>
             </div>
           </div>
-          <DrawerFooter className="mt-auto flex-row items-end justify-between">
+          <DrawerFooter className="mt-auto flex-row items-end justify-between p-2 md:p-4">
             <ul className="flex items-center gap-3">
               <li className="text-sm font-medium text-[#80abff] uppercase transition-colors hover:text-[#c5fbff]">
                 <Link href="#">Privacy Policy</Link>
