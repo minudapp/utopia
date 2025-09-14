@@ -1,7 +1,7 @@
 import danceData from "@/assets/lottie/dance.json";
 import shopData from "@/assets/lottie/shop.json";
 import { LottieAnimation } from "@/components/shared/lottie-animation";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Paragraph } from "@/components/ui/paragraph";
@@ -65,7 +65,7 @@ export function Integrations() {
         </Heading>
 
         {/* Integration Grid */}
-        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {/* <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {integrations.map((integration) => (
             <Card
               key={integration.name}
@@ -87,6 +87,13 @@ export function Integrations() {
               </div>
             </Card>
           ))}
+        </div> */}
+        {/* Add a Coming Soon text for now */}
+        <div className="mt-6 text-center">
+          <Paragraph className="mx-auto max-w-2xl text-lg">
+            Exciting integrations with top DeFi platforms, exchanges, and tools
+            are coming soon! Stay tuned as we expand the Utopia ecosystem.
+          </Paragraph>
         </div>
 
         {/* Call to Action */}
@@ -95,9 +102,9 @@ export function Integrations() {
             Join the growing ecosystem of Pudgy Penguins integrations. Build
             with us and become part of the colony!
           </Paragraph>
-          <Button className="hover:shadow-primary/25 mt-6 rounded-full px-8 py-4 hover:scale-105 hover:shadow-lg">
+          {/* <Button className="hover:shadow-primary/25 mt-6 rounded-full px-8 py-4 hover:scale-105 hover:shadow-lg">
             Explore Partnerships
-          </Button>
+          </Button> */}
         </div>
       </div>
       <div className="absolute -bottom-12 left-6 hidden w-96 md:block">
