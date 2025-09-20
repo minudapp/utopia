@@ -26,7 +26,7 @@ export function Loader() {
       {isVisible && (
         <Preloader>
           <div className="flex w-full flex-col items-center gap-8">
-            <Logo className="w-20" />
+            <Logo className="w-40" />
             <ProgressBar duration={DURATION} onComplete={onComplete} />
           </div>
         </Preloader>

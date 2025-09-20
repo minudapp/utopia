@@ -33,7 +33,7 @@ export function Header({ type, className, ...props }: HeaderProps) {
           <>
             <Nav />
             <Link href="/" className="flex items-center">
-              <Logo className="md:w-16" />
+              <Logo className="md:w-20" />
             </Link>
             <Button
               className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"

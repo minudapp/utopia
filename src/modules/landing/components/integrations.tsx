@@ -1,5 +1,5 @@
 import danceData from "@/assets/lottie/dance.json";
-import shopData from "@/assets/lottie/shop.json";
+import utopiaData from "@/assets/lottie/utopia.json";
 import { LottieAnimation } from "@/components/shared/lottie-animation";
 // import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -107,17 +107,17 @@ export function Integrations() {
           </Button> */}
         </div>
       </div>
-      <div className="absolute -bottom-12 left-6 hidden w-96 md:block">
+      <div className="absolute -bottom-12 left-6 hidden w-96 lg:block">
         <LottieAnimation
           animationData={danceData}
           id="dance"
           className="**:nth-[2]:fill-white"
         />
       </div>
-      <div className="absolute right-20 -bottom-14 hidden w-80 md:block">
+      <div className="absolute right-1/12 bottom-0 hidden w-80 lg:block">
         <LottieAnimation
-          animationData={shopData}
-          id="shop"
+          animationData={utopiaData}
+          id="utopia"
           className="**:nth-[2]:fill-white"
         />
       </div>
