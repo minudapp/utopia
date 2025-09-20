@@ -3,10 +3,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form } from "@/modules/mining/components/form";
 import { Stats } from "@/modules/mining/components/stats";
-import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
+// import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
 
 export function Mining() {
-  const { isConnected } = useWeb3Modal();
+  // const { isConnected } = useWeb3Modal();
 
   return (
     <section id="mining" className="px-4 py-16">

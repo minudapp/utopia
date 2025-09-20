@@ -1,10 +1,10 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
+// import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
 
 export function Stats() {
-  const { isConnected } = useWeb3Modal();
+  // const { isConnected } = useWeb3Modal();
 
   const stats = [
     {

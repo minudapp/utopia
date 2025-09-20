@@ -1,44 +1,42 @@
 import danceData from "@/assets/lottie/dance.json";
 import utopiaData from "@/assets/lottie/utopia.json";
 import { LottieAnimation } from "@/components/shared/lottie-animation";
-// import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Paragraph } from "@/components/ui/paragraph";
 
-const integrations = [
-  // DeFi Platforms
-  { name: "PenguinSwap", category: "defi", icon: "🐧" },
-  { name: "IceVault", category: "defi", icon: "🧊" },
-  { name: "FrostFi", category: "defi", icon: "❄️" },
-  { name: "ArcticDAO", category: "defi", icon: "🏔️" },
+// const integrations = [
+//   // DeFi Platforms
+//   { name: "PenguinSwap", category: "defi", icon: "🐧" },
+//   { name: "IceVault", category: "defi", icon: "🧊" },
+//   { name: "FrostFi", category: "defi", icon: "❄️" },
+//   { name: "ArcticDAO", category: "defi", icon: "🏔️" },
 
-  // Exchanges
-  { name: "PolarExchange", category: "exchange", icon: "🔄" },
-  { name: "ChillTrade", category: "exchange", icon: "📈" },
-  { name: "IceBerg Markets", category: "exchange", icon: "🗻" },
-  { name: "Penguin Pro", category: "exchange", icon: "💎" },
+//   // Exchanges
+//   { name: "PolarExchange", category: "exchange", icon: "🔄" },
+//   { name: "ChillTrade", category: "exchange", icon: "📈" },
+//   { name: "IceBerg Markets", category: "exchange", icon: "🗻" },
+//   { name: "Penguin Pro", category: "exchange", icon: "💎" },
 
-  // Tools & Development
-  { name: "Waddle Tools", category: "tools", icon: "🛠️" },
-  { name: "Flipper SDK", category: "tools", icon: "⚡" },
-  { name: "Colony Builder", category: "tools", icon: "🏗️" },
-  { name: "Ice Analytics", category: "tools", icon: "📊" },
+//   // Tools & Development
+//   { name: "Waddle Tools", category: "tools", icon: "🛠️" },
+//   { name: "Flipper SDK", category: "tools", icon: "⚡" },
+//   { name: "Colony Builder", category: "tools", icon: "🏗️" },
+//   { name: "Ice Analytics", category: "tools", icon: "📊" },
 
-  // Gaming & Entertainment
-  { name: "Penguin Racing", category: "games", icon: "🏁" },
-  { name: "Fish Hunt", category: "games", icon: "🎣" },
-  { name: "Slide Adventure", category: "games", icon: "🛷" },
-  { name: "Huddle Party", category: "games", icon: "🎉" },
+//   // Gaming & Entertainment
+//   { name: "Penguin Racing", category: "games", icon: "🏁" },
+//   { name: "Fish Hunt", category: "games", icon: "🎣" },
+//   { name: "Slide Adventure", category: "games", icon: "🛷" },
+//   { name: "Huddle Party", category: "games", icon: "🎉" },
 
-  // Additional integrations to fill the grid
-  { name: "Frost Wallet", category: "tools", icon: "👛" },
-  { name: "Penguin Staking", category: "defi", icon: "🥩" },
-  { name: "Ice Bridge", category: "defi", icon: "🌉" },
-  { name: "Waddle Rewards", category: "exchange", icon: "🎁" },
-  { name: "Colony Chat", category: "tools", icon: "💬" },
-  { name: "Flipper NFTs", category: "games", icon: "🖼️" },
-];
+//   // Additional integrations to fill the grid
+//   { name: "Frost Wallet", category: "tools", icon: "👛" },
+//   { name: "Penguin Staking", category: "defi", icon: "🥩" },
+//   { name: "Ice Bridge", category: "defi", icon: "🌉" },
+//   { name: "Waddle Rewards", category: "exchange", icon: "🎁" },
+//   { name: "Colony Chat", category: "tools", icon: "💬" },
+//   { name: "Flipper NFTs", category: "games", icon: "🖼️" },
+// ];
 
 export function Integrations() {
   return (
