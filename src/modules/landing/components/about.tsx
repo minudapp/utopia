@@ -11,7 +11,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="bg-secondary text-secondary-foreground relative px-4 py-20"
+      className="bg-primary text-primary-foreground relative px-4 py-20"
     >
       <div className="relative z-1 mx-auto grid w-full max-w-6xl grid-cols-1 content-center gap-10 md:grid-cols-2">
         <Heading variant="h2">

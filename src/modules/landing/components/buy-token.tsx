@@ -22,16 +22,12 @@ export function BuyToken() {
               <br />
               Utility: Governance, Rewards, and More!
             </Paragraph>
-            <Paragraph className="text-muted-foreground text-center text-base md:text-left">
+            <Paragraph className="text-center text-base md:text-left">
               Join the penguin party! Utopia Token powers our playful
               ecosystem—earn rewards, vote on community decisions, and unlock
               exclusive features. Slide into the fun and be part of the waddle!
             </Paragraph>
-            <Button
-              size="lg"
-              className="rounded-full bg-pink-400 px-8 py-3 font-bold text-white shadow-md transition-colors hover:bg-pink-500"
-              asChild
-            >
+            <Button size="lg" className="rounded-full" asChild>
               <Link
                 href="https://exchange.example.com/buy/utopia"
                 target="_blank"

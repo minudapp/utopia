@@ -1,26 +1,34 @@
 "use client";
 
-import { CopyIcon, GiftIcon, Share2Icon } from "lucide-react";
-import Image from "next/image";
-import { useAccount } from "wagmi";
+import { CheckIcon, CopyIcon, GiftIcon, Share2Icon } from "lucide-react";
+import { useCallback, useState } from "react";
 
-import referralPenguin from "@/assets/images/referral-penguin.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
 
 export function ReferralLink() {
-  const { address, isConnected } = useAccount();
+  const { address, isConnected } = useWeb3Modal();
+  const [copied, setCopied] = useState(false);
 
-  const copyReferralLink = async () => {
+  const copyReferralLink = useCallback(async () => {
     const link = `${window.location.origin}?ref=${address}`;
+
+    let timeout: NodeJS.Timeout | null = null;
     try {
       await navigator.clipboard.writeText(link);
+      setCopied(true);
+      timeout = setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy:", err);
     }
-  };
 
-  const shareReferralLink = async () => {
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, [address]);
+
+  const shareReferralLink = useCallback(async () => {
     const link = `${window.location.origin}?ref=${address}`;
     if (navigator.share) {
       try {
@@ -35,7 +43,7 @@ export function ReferralLink() {
     } else {
       copyReferralLink();
     }
-  };
+  }, [address, copyReferralLink]);
 
   return (
     <Card className="text-muted relative border-4 border-[#00142d] bg-[#fbf7eb] lg:col-span-2">
@@ -46,28 +54,40 @@ export function ReferralLink() {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
-        <div className="flex items-center gap-3 rounded-lg border p-4">
-          <div className="min-w-0 flex-1">
-            <p className="text-sm">YOUR LINK:</p>
-            <p className="mt-1 truncate font-mono text-sm">
-              {isConnected
-                ? `${window.location.origin}?ref=${address}`
-                : "Connect wallet to generate link"}
-            </p>
-          </div>
+        <div className="flex flex-col gap-3 rounded-lg border p-4">
+          <p className="text-sm">YOUR LINK:</p>
+          <p className="mt-1 font-mono text-sm">
+            {isConnected
+              ? `${window.location.origin}?ref=${address}`
+              : "Connect wallet to generate link"}
+          </p>
           <div className="flex gap-2">
-            <Button onClick={copyReferralLink} variant="default" size="sm">
-              <CopyIcon className="mr-1 size-4" />
+            <Button
+              onClick={copyReferralLink}
+              variant="default"
+              size="sm"
+              disabled={!isConnected}
+            >
+              {copied ? (
+                <CheckIcon className="mr-1" />
+              ) : (
+                <CopyIcon className="mr-1" />
+              )}
               Copy
             </Button>
-            <Button onClick={shareReferralLink} variant="default" size="sm">
+            <Button
+              onClick={shareReferralLink}
+              variant="default"
+              size="sm"
+              disabled={!isConnected}
+            >
               <Share2Icon className="mr-1 size-4" />
               Share
             </Button>
           </div>
         </div>
 
-        <div className="w-3/4 rounded-lg border p-4">
+        <div className="rounded-lg border p-4">
           <p className="leading-relaxed">
             <span className="text-primary font-semibold">
               You Can Earn BNB Tokens
@@ -86,11 +106,6 @@ export function ReferralLink() {
           </p>
         </div>
       </CardContent>
-      <Image
-        src={referralPenguin}
-        alt="penguin"
-        className="absolute right-4 bottom-0 w-32"
-      />
     </Card>
   );
 }

@@ -31,15 +31,11 @@ export function Nav() {
           <span className="sr-only">Open navigation menu</span>
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="h-full border-[#ff8b8b] bg-[#00142d] data-[vaul-drawer-direction=top]:max-h-[70vh] data-[vaul-drawer-direction=top]:rounded-b-3xl data-[vaul-drawer-direction=top]:border-b-10">
+      <DrawerContent className="border-primary h-full bg-[#00142d] data-[vaul-drawer-direction=top]:max-h-[70vh] data-[vaul-drawer-direction=top]:rounded-b-3xl data-[vaul-drawer-direction=top]:border-b-10">
         <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col py-3">
           <div className="absolute top-4 right-4">
             <DrawerClose asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="size-auto rounded-full bg-[#ff8b8b]! p-2"
-              >
+              <Button size="icon" className="size-auto rounded-full p-2">
                 <XIcon className="size-7" />
               </Button>
             </DrawerClose>

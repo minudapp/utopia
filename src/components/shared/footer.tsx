@@ -1,11 +1,18 @@
 import Link from "next/link";
 
 import { Paragraph } from "@/components/ui/paragraph";
+import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
 
-export function Footer() {
+export function Footer({
+  className,
+  ...props
+}: React.ComponentProps<"footer">) {
   return (
-    <footer className="bg-card border-border border-t py-12">
+    <footer
+      className={cn("border-border border-t py-12", className)}
+      {...props}
+    >
       <div className="container mx-auto max-w-5xl px-4">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 flex flex-col gap-4">
@@ -89,7 +96,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-border mt-8 border-t pt-8">
+        <div className="mt-8 pt-8">
           <Paragraph className="mx-auto text-center text-sm">
             © {new Date().getFullYear()} Utopia. All rights reserved.
           </Paragraph>

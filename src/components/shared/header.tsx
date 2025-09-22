@@ -4,7 +4,6 @@ import { Box } from "@/components/ui/box";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ConnectWalletButton } from "@/modules/web3/components/connect-wallet-button";
-import { Logo } from "./logo";
 import { Nav } from "./nav";
 
 type HeaderProps = React.ComponentProps<"header"> & {
@@ -20,21 +19,22 @@ export function Header({ type, className, ...props }: HeaderProps) {
           : {}
       }
       className={cn(
-        "flex h-(--header-height) w-full items-center justify-center bg-[#2b90cc]",
+        "flex h-(--header-height) w-full items-center justify-center",
+        type === "marketing" && "absolute top-0 left-0 z-10 bg-transparent",
         className,
       )}
       {...props}
     >
       <Box
         variant="container"
-        className="flex items-center justify-between gap-3"
+        className={cn(
+          "flex items-center gap-3",
+          type === "app" ? "justify-end" : "justify-between",
+        )}
       >
         {type === "marketing" && (
           <>
             <Nav />
-            <Link href="/" className="flex items-center">
-              <Logo className="md:w-20" />
-            </Link>
             <Button
               className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
               size="xl"
@@ -45,14 +45,7 @@ export function Header({ type, className, ...props }: HeaderProps) {
           </>
         )}
 
-        {type === "app" && (
-          <>
-            <Link href="/" className="flex items-center">
-              <Logo />
-            </Link>
-            <ConnectWalletButton />
-          </>
-        )}
+        {type === "app" && <ConnectWalletButton />}
       </Box>
     </header>
   );

@@ -1,15 +1,17 @@
 "use client";
 
 import { ExternalLinkIcon } from "lucide-react";
-import Image from "next/image";
-import { useAccount } from "wagmi";
 
-import sharePenguin from "@/assets/images/share-penguin.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { cn } from "@/lib/utils";
+import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
 
-export function SocialSharing() {
-  const { address } = useAccount();
+export function SocialSharing({
+  className,
+  ...props
+}: React.ComponentProps<typeof Card>) {
+  const { address, isConnected } = useWeb3Modal();
 
   const copyReferralLink = async () => {
     const link = `${window.location.origin}?ref=${address}`;
@@ -21,7 +23,13 @@ export function SocialSharing() {
   };
 
   return (
-    <Card className="text-muted relative border-4 border-[#00142d] bg-[#f5fdff]">
+    <Card
+      className={cn(
+        "text-muted relative border-4 border-[#00142d] bg-[#f5fdff]",
+        className,
+      )}
+      {...props}
+    >
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <ExternalLinkIcon className="text-primary size-5" />
@@ -36,7 +44,8 @@ export function SocialSharing() {
               "_blank",
             )
           }
-          className="w-full max-w-52 bg-blue-500 hover:bg-blue-600 lg:max-w-full"
+          className="w-full bg-blue-500 hover:bg-blue-600 lg:max-w-full"
+          disabled={!isConnected}
         >
           Twitter
         </Button>
@@ -47,23 +56,20 @@ export function SocialSharing() {
               "_blank",
             )
           }
-          className="w-full max-w-52 bg-blue-400 hover:bg-blue-500 lg:max-w-full"
+          className="w-full bg-blue-400 hover:bg-blue-500 lg:max-w-full"
+          disabled={!isConnected}
         >
           Telegram
         </Button>
         <Button
           onClick={copyReferralLink}
           variant="secondary"
-          className="w-full max-w-52 lg:max-w-full"
+          className="w-full lg:max-w-full"
+          disabled={!isConnected}
         >
           Copy Link
         </Button>
       </CardContent>
-      <Image
-        src={sharePenguin}
-        alt="penguin"
-        className="absolute right-4 bottom-0 w-32"
-      />
     </Card>
   );
 }

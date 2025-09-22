@@ -1,4 +1,3 @@
-import danceData from "@/assets/lottie/dance.json";
 import utopiaData from "@/assets/lottie/utopia.json";
 import { LottieAnimation } from "@/components/shared/lottie-animation";
 import { Heading } from "@/components/ui/heading";
@@ -104,13 +103,6 @@ export function Integrations() {
             Explore Partnerships
           </Button> */}
         </div>
-      </div>
-      <div className="absolute -bottom-12 left-6 hidden w-96 lg:block">
-        <LottieAnimation
-          animationData={danceData}
-          id="dance"
-          className="**:nth-[2]:fill-white"
-        />
       </div>
       <div className="absolute right-1/12 bottom-0 hidden w-80 lg:block">
         <LottieAnimation

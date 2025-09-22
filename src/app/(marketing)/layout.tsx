@@ -10,7 +10,7 @@ export default function MarketingLayout({
     <>
       <Header type="marketing" />
       {children}
-      <Footer />
+      <Footer className="bg-primary" />
     </>
   );
 }

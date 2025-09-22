@@ -6,7 +6,7 @@ import { SocialSharing } from "@/modules/referral/components/social-sharing";
 export function Referral() {
   return (
     <section id="referral">
-      <div className="mx-auto w-full max-w-6xl px-4 py-16">
+      <div className="mx-auto w-full max-w-6xl py-16">
         <div className="text-center">
           <Heading variant="h2">REFERRAL PROGRAM</Heading>
           <Paragraph className="mx-auto text-lg font-semibold uppercase">
@@ -16,7 +16,7 @@ export function Referral() {
         </div>
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
           <ReferralLink />
-          <SocialSharing />
+          <SocialSharing className="self-start" />
         </div>
       </div>
     </section>

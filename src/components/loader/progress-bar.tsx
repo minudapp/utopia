@@ -36,8 +36,8 @@ export function ProgressBar({ duration, onComplete }: ProgressBarProps) {
   return (
     <Progress
       value={value}
-      className="bg-foreground/20"
-      indicatorClassName="bg-foreground"
+      className="bg-background/20"
+      indicatorClassName="bg-background"
     />
   );
 }
