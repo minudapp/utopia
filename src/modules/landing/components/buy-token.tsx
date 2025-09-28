@@ -7,8 +7,11 @@ import { Paragraph } from "@/components/ui/paragraph";
 
 export function BuyToken() {
   return (
-    <section className="flex min-h-[75svh] items-center justify-center bg-gradient-to-br from-blue-100 to-pink-100 px-4 py-20">
-      <Card className="w-full max-w-3xl rounded-xl shadow-lg">
+    <section
+      id="buy-token"
+      className="flex min-h-[75svh] items-center justify-center bg-[#00e2ff] px-4 py-20"
+    >
+      <Card className="w-full max-w-3xl rounded-xl bg-[#83b0c4] shadow-lg">
         <CardContent className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
             <Heading variant="h2" className="text-center md:text-left">
@@ -17,15 +20,17 @@ export function BuyToken() {
             <Paragraph className="text-center text-lg md:text-left">
               Symbol: <span className="font-semibold">UTOPIA</span> <br />
               Total Supply: <span className="font-semibold">
-                1,000,000
+                1,000,000,000
               </span>{" "}
               <br />
-              Utility: Governance, Rewards, and More!
+              Network: <span className="font-semibold">BNB Chain</span>
+              Fee: <span className="font-semibold">5% Buy - 5% Sell</span>
             </Paragraph>
             <Paragraph className="text-center text-base md:text-left">
-              Join the penguin party! Utopia Token powers our playful
-              ecosystem—earn rewards, vote on community decisions, and unlock
-              exclusive features. Slide into the fun and be part of the waddle!
+              Your Gateway to Utopia Awaits. The Utopia Token isn&apos;t just a
+              asset—it&apos;s your share of governance, your passport to
+              rewards, and your membership to an exclusive world. Secure your
+              position and become a founding citizen today.
             </Paragraph>
             <Button size="lg" className="rounded-full" asChild>
               <Link

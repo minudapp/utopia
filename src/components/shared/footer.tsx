@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Paragraph } from "@/components/ui/paragraph";
 import { cn } from "@/lib/utils";
-import { Logo } from "./logo";
+import { LogoWithText } from "./logo";
 
 export function Footer({
   className,
@@ -16,9 +16,9 @@ export function Footer({
       <div className="container mx-auto max-w-5xl px-4">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2 flex flex-col gap-4">
-            <Logo className="h-full w-24 object-contain" />
+            <LogoWithText className="h-auto w-full md:w-64" />
             <Paragraph className="text-sm">
-              The coolest utopia community. Join our arctic adventure today!
+              Your digital paradise awaits. Join the vision today!
             </Paragraph>
           </div>
 
@@ -27,22 +27,12 @@ export function Footer({
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="#" className="hover:text-primary transition-colors">
-                  Discord
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-primary transition-colors">
                   Twitter
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-primary transition-colors">
-                  Instagram
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Reddit
+                  Telegram
                 </Link>
               </li>
             </ul>
@@ -52,13 +42,11 @@ export function Footer({
             <h3 className="text-foreground mb-4 font-semibold">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Whitepaper
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  FAQ
+                <Link
+                  href="https://docs.utopiabnb.com"
+                  className="hover:text-primary transition-colors"
+                >
+                  Documentation
                 </Link>
               </li>
               <li>
@@ -85,11 +73,6 @@ export function Footer({
               <li>
                 <Link href="#" className="hover:text-primary transition-colors">
                   Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Cookie Policy
                 </Link>
               </li>
             </ul>

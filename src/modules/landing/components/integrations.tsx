@@ -39,7 +39,7 @@ import { Paragraph } from "@/components/ui/paragraph";
 
 export function Integrations() {
   return (
-    <section className="relative overflow-hidden px-4 py-24">
+    <section id="integrations" className="relative overflow-hidden px-4 py-24">
       {/* Arctic gradient background */}
       <div className="from-muted to-background absolute inset-0 bg-radial to-75%" />
 

@@ -1,12 +1,12 @@
+"use client";
+
 import { XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
-import discord from "@/assets/images/discord.png";
-import instagram from "@/assets/images/instagram.png";
-import menuPenguins from "@/assets/images/menu-penguins.png";
+import telegram from "@/assets/images/telegram.png";
 import twitter from "@/assets/images/twitter.png";
-import youtube from "@/assets/images/youtube.png";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -20,8 +20,36 @@ import {
 } from "@/components/ui/drawer";
 
 export function Nav() {
+  const [open, setOpen] = useState(false);
+
+  const close = () => setOpen(false);
+
+  const scrollToHash = (hash: string) => {
+    const element = document.getElementById(hash.replace("#", ""));
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    let timeout: NodeJS.Timeout | null = null;
+
+    const href = e.currentTarget.getAttribute("href");
+    if (href && href.startsWith("#")) {
+      e.preventDefault();
+      close();
+      timeout = setTimeout(() => scrollToHash(href), 500);
+    }
+
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  };
+
   return (
-    <Drawer direction="top">
+    <Drawer open={open} onOpenChange={setOpen} direction="top">
       <DrawerTrigger asChild>
         <Button
           className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
@@ -31,7 +59,7 @@ export function Nav() {
           <span className="sr-only">Open navigation menu</span>
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="border-primary h-full bg-[#00142d] data-[vaul-drawer-direction=top]:max-h-[70vh] data-[vaul-drawer-direction=top]:rounded-b-3xl data-[vaul-drawer-direction=top]:border-b-10">
+      <DrawerContent className="border-primary h-full bg-[#5EC8D8] data-[vaul-drawer-direction=top]:max-h-[70vh] data-[vaul-drawer-direction=top]:rounded-b-3xl data-[vaul-drawer-direction=top]:border-b-10">
         <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col py-3">
           <div className="absolute top-4 right-4">
             <DrawerClose asChild>
@@ -49,86 +77,83 @@ export function Nav() {
           <div className="mt-10 grid grid-cols-1 items-center gap-6 p-6 md:grid-cols-3">
             <nav className="md:col-span-2">
               <ul className="grid grid-cols-2 gap-3">
-                <li className="text-xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] sm:text-2xl md:text-3xl xl:text-5xl">
-                  <Link href="#">The Team</Link>
+                <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
+                  <Link href="#about" onClick={handleLinkClick}>
+                    The Utopia
+                  </Link>
                 </li>
-                <li className="text-xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] sm:text-2xl md:text-3xl xl:text-5xl">
-                  <Link href="#">Shop</Link>
+                <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
+                  <Link href="#buy-token" onClick={handleLinkClick}>
+                    Buy $UTOPIA
+                  </Link>
                 </li>
-                <li className="text-xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] sm:text-2xl md:text-3xl xl:text-5xl">
-                  <Link href="#">Pengu Lore</Link>
+                <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
+                  <Link href="/dapp">Earn BNB</Link>
                 </li>
-                <li className="text-xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] sm:text-2xl md:text-3xl xl:text-5xl">
-                  <Link href="#">Igloo Brand</Link>
+                <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
+                  <Link href="https://docs.utopiabnb.com">Documentation</Link>
                 </li>
-                <li className="text-xl font-extrabold text-[#80abff] uppercase transition-colors hover:text-[#c5fbff] sm:text-2xl md:text-3xl xl:text-5xl">
-                  <Link href="#">Buy $Pengu</Link>
+                <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
+                  <Link href="#integrations" onClick={handleLinkClick}>
+                    Integrations
+                  </Link>
                 </li>
               </ul>
             </nav>
-            <div className="grid grid-cols-4 md:grid-cols-2">
-              <Link
-                className="md:-mr-6 lg:-mr-12"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Follow us on YouTube"
-              >
-                <Image src={youtube} alt="Youtube" />
-                <span className="sr-only">Youtube</span>
-              </Link>
-              <Link
-                className="md:-ml-6 lg:-ml-12"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Join us on Discord"
-              >
-                <Image src={discord} alt="Discord" />
-                <span className="sr-only">Discord</span>
-              </Link>
-              <Link
-                className="md:-mt-12 md:-mr-6 lg:-mr-12"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Follow us on Twitter"
-              >
-                <Image src={twitter} alt="Twitter" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link
-                className="md:-mt-12 md:-ml-6 lg:-ml-12"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Follow us on Instagram"
-              >
-                <Image src={instagram} alt="Instagram" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-            </div>
           </div>
           <DrawerFooter className="mt-auto flex-row items-end justify-between p-2 md:p-4">
             <ul className="flex items-center gap-3">
-              <li className="text-sm font-medium text-[#80abff] uppercase transition-colors hover:text-[#c5fbff]">
+              <li className="text-foreground text-sm font-medium uppercase transition-colors hover:text-[#c5fbff]">
                 <Link href="#">Privacy Policy</Link>
               </li>
-              <li className="text-sm font-medium text-[#80abff] uppercase transition-colors hover:text-[#c5fbff]">
+              <li className="text-foreground text-sm font-medium uppercase transition-colors hover:text-[#c5fbff]">
                 <Link href="#">Terms of use</Link>
               </li>
-              <li className="text-sm font-medium text-[#80abff] uppercase transition-colors hover:text-[#c5fbff]">
-                <Link href="#">IP Rights</Link>
+            </ul>
+            <ul className="flex items-center gap-4">
+              <li>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="size-10 rounded-full"
+                  asChild
+                >
+                  <Link
+                    href="https://t.me/Utopia_BNB"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="sr-only">Telegram</span>
+                    <Image
+                      src={telegram}
+                      alt="Instagram"
+                      className="h-full w-full object-contain"
+                    />
+                  </Link>
+                </Button>
               </li>
-              <li className="text-sm font-medium text-[#80abff] uppercase transition-colors hover:text-[#c5fbff]">
-                <Link href="#">Careers</Link>
+              <li>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="size-10 rounded-full"
+                  asChild
+                >
+                  <Link
+                    href="https://twitter.com/Utopia_BNB"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="sr-only">Twitter</span>
+                    <Image
+                      src={twitter}
+                      alt="Twitter"
+                      className="h-full w-full object-contain"
+                    />
+                  </Link>
+                </Button>
               </li>
             </ul>
-            <Image
-              src={menuPenguins}
-              alt="Menu Penguins"
-              className="hidden h-full w-80 md:block"
-            />
           </DrawerFooter>
         </div>
       </DrawerContent>

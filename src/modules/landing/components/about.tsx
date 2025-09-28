@@ -2,7 +2,7 @@
 
 import dolphinData from "@/assets/lottie/dolphin.json";
 import parrotData from "@/assets/lottie/parrot.json";
-import pudgyPenguinsData from "@/assets/lottie/pudgy-penguins.json";
+import utopiaUniverseData from "@/assets/lottie/utopia-universe.json";
 import { LottieAnimation } from "@/components/shared/lottie-animation";
 import { Heading } from "@/components/ui/heading";
 import { Paragraph } from "@/components/ui/paragraph";
@@ -15,28 +15,28 @@ export function About() {
     >
       <div className="relative z-1 mx-auto grid w-full max-w-6xl grid-cols-1 content-center gap-10 md:grid-cols-2">
         <Heading variant="h2">
-          <span className="sr-only">Pudgy Penguins</span>
-          {/* <PudgyPenguinsIcon /> */}
+          <span className="sr-only">Utopia Universe</span>
           <LottieAnimation
-            animationData={pudgyPenguinsData}
-            id="pudgy-penguins"
+            animationData={utopiaUniverseData}
+            id="utopia-universe"
             className="h-full max-h-1/2 **:nth-[2]:fill-white"
           />
         </Heading>
         <div className="flex flex-col gap-5">
           <Paragraph className="text-xl font-black">
-            Welcome to the world of Pudgy Penguins. a web3-born brand that
-            fosters creativity, freedom, and community.
+            Welcome to the Utopia Universe, a digital paradise designed to
+            reward every step of your journey. Here, community and technology
+            converge to foster freedom, creativity, and tangible value.
           </Paragraph>
           <Paragraph className="text-xl font-black">
-            The Pudgy Penguins brand produces content, merchandise, toys, and
-            digital collectables. We believe in the power of play and
-            imagination, and we&apos;re committed to helping you unlock your
-            inner child.
+            At the heart of Utopia is a living world where your engagement fuels
+            the economy. Guide the Utopia girl closer to our world&apos;s core
+            and watch your influence—and your BNB rewards—grow. We believe in a
+            future where exploration is directly linked to prosperity.
           </Paragraph>
           <Paragraph className="text-xl font-black">
-            It&apos;s a very cold place but you&apos;ll be warm with your new
-            favorite penguin family!
+            The path is yours to shape, and every discovery brings you closer to
+            the center of it all.
           </Paragraph>
         </div>
       </div>
