@@ -112,48 +112,34 @@ export function Nav() {
             </ul>
             <ul className="flex items-center gap-4">
               <li>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="size-10 rounded-full"
-                  asChild
+                <Link
+                  href="https://t.me/Utopia_BNB"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <Link
-                    href="https://t.me/Utopia_BNB"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="sr-only">Telegram</span>
-                    <Image
-                      src={telegram}
-                      alt="Instagram"
-                      quality={100}
-                      className="h-full w-full object-contain"
-                    />
-                  </Link>
-                </Button>
+                  <span className="sr-only">Telegram</span>
+                  <Image
+                    src={telegram}
+                    alt="Instagram"
+                    quality={100}
+                    className="size-10 object-contain"
+                  />
+                </Link>
               </li>
               <li>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="size-10 rounded-full"
-                  asChild
+                <Link
+                  href="https://twitter.com/Utopia_BNB"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <Link
-                    href="https://twitter.com/Utopia_BNB"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span className="sr-only">Twitter</span>
-                    <Image
-                      src={twitter}
-                      alt="Twitter"
-                      quality={100}
-                      className="h-full w-full object-contain"
-                    />
-                  </Link>
-                </Button>
+                  <span className="sr-only">Twitter</span>
+                  <Image
+                    src={twitter}
+                    alt="Twitter"
+                    quality={100}
+                    className="size-10 object-contain"
+                  />
+                </Link>
               </li>
             </ul>
           </DrawerFooter>
