@@ -54,11 +54,6 @@ export function Footer({
                   Support
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Brand Kit
-                </Link>
-              </li>
             </ul>
           </div>
 

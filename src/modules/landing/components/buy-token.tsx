@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+
+import coin from "@/assets/images/coin.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
@@ -24,6 +26,7 @@ export function BuyToken() {
               </span>{" "}
               <br />
               Network: <span className="font-semibold">BNB Chain</span>
+              <br />
               Fee: <span className="font-semibold">5% Buy - 5% Sell</span>
             </Paragraph>
             <Paragraph className="text-center text-base md:text-left">
@@ -42,16 +45,11 @@ export function BuyToken() {
               </Link>
             </Button>
           </div>
-          <div className="relative h-full w-full">
-            <Image
-              src="/images/share-penguin.png"
-              alt="Utopia Token Mascot"
-              width={500}
-              height={500}
-              className="h-full w-full object-contain drop-shadow-lg"
-            />
-            <div className="to-card from-card/10 absolute inset-0 bg-gradient-to-b from-20%" />
-          </div>
+          <Image
+            src={coin}
+            alt="Utopia Token"
+            className="h-full w-full object-contain drop-shadow-lg"
+          />
         </CardContent>
       </Card>
     </section>

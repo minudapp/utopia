@@ -20,10 +20,12 @@ export function Hero() {
       <div className="relative z-1 flex h-full flex-col">
         <div className="relative z-1 flex flex-col items-center px-[10svw] pt-[50svh] md:pt-[10svh]">
           <Title />
-          <Paragraph className="mt-10 max-w-2xl text-center text-xl font-black uppercase">
-            Pudgy Penguins is a global IP focused on proliferating the penguin,
-            memetic culture, and good vibes.
-          </Paragraph>
+          <div className="from-primary/30 mt-10 h-32 bg-radial from-5% to-transparent">
+            <Paragraph className="text-shadow-background max-w-2xl text-center text-xl font-black uppercase text-shadow-lg/30">
+              A digital world where exploration builds community and generates
+              rewards.
+            </Paragraph>
+          </div>
         </div>
         <div className="relative mx-auto hidden h-full w-full lg:block">
           <Image
