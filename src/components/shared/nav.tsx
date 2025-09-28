@@ -127,6 +127,7 @@ export function Nav() {
                     <Image
                       src={telegram}
                       alt="Instagram"
+                      quality={100}
                       className="h-full w-full object-contain"
                     />
                   </Link>
@@ -148,6 +149,7 @@ export function Nav() {
                     <Image
                       src={twitter}
                       alt="Twitter"
+                      quality={100}
                       className="h-full w-full object-contain"
                     />
                   </Link>
