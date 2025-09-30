@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useTime, useTransform } from "motion/react";
+import { useEffect, useState } from "react";
 
 import { Progress } from "@/components/ui/progress";
 
@@ -9,33 +10,34 @@ type ProgressBarProps = {
   onComplete?: () => void;
 };
 
-const calculateProgress = (elapsed: number, duration: number) => {
-  return Math.min((elapsed / duration) * 100, 100);
-};
-
 export function ProgressBar({ duration, onComplete }: ProgressBarProps) {
-  const [value, setValue] = useState(0);
-  const startTimeRef = useRef(Date.now());
+  const time = useTime();
+  const progress = useTransform(time, [0, duration], [0, 100], {
+    clamp: false,
+  });
+  const [value, setValue] = useState(progress.get());
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const elapsed = Date.now() - startTimeRef.current;
-      let newValue = calculateProgress(elapsed, duration); // Update every 30 ms
-      if (newValue >= 100) {
-        clearInterval(interval);
+    progress.on("change", (latest) => {
+      setValue(latest);
+      if (latest >= 100) {
+        setValue(100);
+        time.stop();
+        progress.stop();
         onComplete?.();
-        newValue = 100; // Ensure it caps at 100% when complete
       }
+    });
 
-      setValue(newValue);
-    }, 10);
-
-    return () => clearInterval(interval);
-  }, [duration, onComplete]);
+    return () => {
+      time.stop();
+      progress.stop();
+    };
+  }, [onComplete, progress, time]);
 
   return (
     <Progress
       value={value}
+      max={100}
       className="bg-background/20"
       indicatorClassName="bg-background"
     />

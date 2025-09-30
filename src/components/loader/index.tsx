@@ -7,7 +7,7 @@ import { Logo } from "@/components/shared/logo";
 import { Preloader } from "./preloader";
 import { ProgressBar } from "./progress-bar";
 
-const DURATION = 2000;
+const DURATION = 2500;
 const TRANSITION_DELAY = 100;
 
 export function Loader() {
