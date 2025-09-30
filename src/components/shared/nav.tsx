@@ -101,16 +101,9 @@ export function Nav() {
               </ul>
             </nav>
           </div>
-          <DrawerFooter className="mt-auto flex-row items-end justify-between p-2 md:p-4">
-            <ul className="flex items-center gap-3">
-              <li className="text-foreground text-sm font-medium uppercase transition-colors hover:text-[#c5fbff]">
-                <Link href="#">Privacy Policy</Link>
-              </li>
-              <li className="text-foreground text-sm font-medium uppercase transition-colors hover:text-[#c5fbff]">
-                <Link href="#">Terms of use</Link>
-              </li>
-            </ul>
-            <ul className="flex items-center gap-4">
+
+          <DrawerFooter className="mt-auto p-2 md:gap-32 md:p-4 lg:gap-48">
+            <ul className="relative flex items-center gap-4 self-center md:right-1/6 md:self-end">
               <li>
                 <Link
                   href="https://t.me/Utopia_BNB"
@@ -122,7 +115,7 @@ export function Nav() {
                     src={telegram}
                     alt="Instagram"
                     quality={100}
-                    className="size-10 object-contain"
+                    className="size-40 -rotate-12 object-contain"
                   />
                 </Link>
               </li>
@@ -137,9 +130,18 @@ export function Nav() {
                     src={twitter}
                     alt="Twitter"
                     quality={100}
-                    className="size-10 object-contain"
+                    className="size-40 rotate-12 object-contain"
                   />
                 </Link>
+              </li>
+            </ul>
+
+            <ul className="flex items-center gap-3">
+              <li className="text-foreground text-sm font-medium uppercase transition-colors hover:text-[#c5fbff]">
+                <Link href="#">Privacy Policy</Link>
+              </li>
+              <li className="text-foreground text-sm font-medium uppercase transition-colors hover:text-[#c5fbff]">
+                <Link href="#">Terms of use</Link>
               </li>
             </ul>
           </DrawerFooter>

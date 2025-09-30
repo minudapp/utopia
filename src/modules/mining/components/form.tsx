@@ -88,17 +88,17 @@ export function Form() {
           </div>
         </div>
 
-        <p className="text-center text-sm">ENTER BNB AMOUNT & HIRE MINERS</p>
+        <p className="text-center text-sm">ENTER BNB AMOUNT & HIRE EXPLORERS</p>
       </div>
 
       <div className="mt-6 space-y-3">
         <Button className="w-full rounded-lg py-3 font-bold">
-          Hire Miners
+          Hire Explorers
         </Button>
 
         <div className="grid grid-cols-2 gap-3">
           <Button variant="secondary" className="rounded-lg py-3 font-bold">
-            Compound Miners
+            Compound Explorers
           </Button>
           <Button variant="secondary" className="rounded-lg py-3 font-bold">
             Collect Rewards

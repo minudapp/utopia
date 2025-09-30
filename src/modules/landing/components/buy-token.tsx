@@ -13,7 +13,7 @@ export function BuyToken() {
       id="buy-token"
       className="flex min-h-[75svh] items-center justify-center bg-[#00e2ff] px-4 py-20"
     >
-      <Card className="w-full max-w-3xl rounded-xl bg-[#83b0c4] shadow-lg">
+      <Card className="w-full max-w-3xl rounded-xl shadow-lg">
         <CardContent className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
             <Heading variant="h2" className="text-center md:text-left">

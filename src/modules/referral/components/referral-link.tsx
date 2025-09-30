@@ -56,7 +56,7 @@ export function ReferralLink() {
       <CardContent className="space-y-3">
         <div className="flex flex-col gap-3 rounded-lg border p-4">
           <p className="text-sm">YOUR LINK:</p>
-          <p className="mt-1 font-mono text-sm">
+          <p className="mt-1 truncate font-mono text-sm">
             {isConnected
               ? `${window.location.origin}?ref=${address}`
               : "Connect wallet to generate link"}
@@ -92,15 +92,15 @@ export function ReferralLink() {
             <span className="text-primary font-semibold">
               You Can Earn BNB Tokens
             </span>{" "}
-            for inviting new users to join Minu. The Minu contract has a direct,
-            one-level referral system{" "}
+            for inviting new explorers to find Utopia. The Utopia contract has a
+            direct, one-level referral system{" "}
             <span className="text-primary font-semibold">
               That Rewards Referrer
             </span>{" "}
             when invited users deposit and withdraw their tokens. Promote your
             referral link and{" "}
             <span className="text-primary font-semibold">
-              Earn 12% Referral Rewards
+              Earn 8% Referral Rewards
             </span>
             .
           </p>

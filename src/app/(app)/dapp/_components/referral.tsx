@@ -10,8 +10,8 @@ export function Referral() {
         <div className="text-center">
           <Heading variant="h2">REFERRAL PROGRAM</Heading>
           <Paragraph className="mx-auto text-lg font-semibold uppercase">
-            Earn 12% of the BNB used to hire miners by anyone who starts mining
-            using your referral link
+            Earn 8% of the BNB used to hire explorers by anyone who starts
+            exploring using your referral link
           </Paragraph>
         </div>
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">

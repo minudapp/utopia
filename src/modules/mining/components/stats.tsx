@@ -8,17 +8,17 @@ export function Stats() {
 
   const stats = [
     {
-      title: "Mining Daily Profit",
-      value: "8%",
+      title: "Journey Daily Progress",
+      value: "up to 8%",
       description: "Daily percentage rate",
     },
     {
-      title: "Total staked",
-      value: "9,876,543",
-      description: "PUDGY tokens staked",
+      title: "Total Value Locked",
+      value: "9,876,543 miles",
+      description: "Utopia TVL",
     },
     {
-      title: "stPUDGY price",
+      title: "BNB price",
       value: "$1.032",
       description: "Current market price",
     },
