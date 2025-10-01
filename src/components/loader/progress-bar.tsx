@@ -1,13 +1,13 @@
 "use client";
 
-import { useTime, useTransform } from "motion/react";
-import { useEffect, useState } from "react";
+import { useMotionValueEvent, useTime, useTransform } from "motion/react";
+import { useState } from "react";
 
 import { Progress } from "@/components/ui/progress";
 
 type ProgressBarProps = {
   duration: number;
-  onComplete?: () => void;
+  onComplete: () => void;
 };
 
 export function ProgressBar({ duration, onComplete }: ProgressBarProps) {
@@ -17,22 +17,15 @@ export function ProgressBar({ duration, onComplete }: ProgressBarProps) {
   });
   const [value, setValue] = useState(progress.get());
 
-  useEffect(() => {
-    progress.on("change", (latest) => {
+  useMotionValueEvent(progress, "change", (latest) => {
+    if (latest < 100) {
       setValue(latest);
-      if (latest >= 100) {
-        setValue(100);
-        time.stop();
-        progress.stop();
-        onComplete?.();
-      }
-    });
+      return;
+    }
 
-    return () => {
-      time.stop();
-      progress.stop();
-    };
-  }, [onComplete, progress, time]);
+    setValue(100);
+    onComplete();
+  });
 
   return (
     <Progress

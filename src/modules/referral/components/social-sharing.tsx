@@ -25,7 +25,7 @@ export function SocialSharing({
   return (
     <Card
       className={cn(
-        "text-muted relative border-4 border-[#00142d] bg-[#f5fdff]",
+        "text-muted relative border-4 border-[#00142d] bg-[#fbf7eb]",
         className,
       )}
       {...props}

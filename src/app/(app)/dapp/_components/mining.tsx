@@ -11,7 +11,10 @@ export function Mining() {
   // const { isConnected } = useWeb3Modal();
 
   return (
-    <section id="mining" className="py-16">
+    <section
+      id="mining"
+      className="flex min-h-svh items-center justify-center py-16"
+    >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         <Card className="md:col-span-2">
           <CardContent className="space-y-6">

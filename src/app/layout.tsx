@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 import { Loader } from "@/components/loader";
-import { geistMono, geistSans } from "@/config/fonts";
+import { geistMono, nunitoSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -53,7 +53,7 @@ export default function RootLayout({
       <body
         className={cn(
           geistMono.variable,
-          geistSans.variable,
+          nunitoSans.variable,
           "relative font-sans antialiased",
         )}
       >

@@ -19,8 +19,7 @@ export function Header({ type, className, ...props }: HeaderProps) {
           : {}
       }
       className={cn(
-        "flex h-(--header-height) w-full items-center justify-center",
-        type === "marketing" && "absolute top-0 left-0 z-10 bg-transparent",
+        "absolute top-0 left-0 z-10 flex h-(--header-height) w-full items-center justify-center bg-transparent",
         className,
       )}
       {...props}
