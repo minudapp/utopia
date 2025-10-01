@@ -18,6 +18,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { AnimatedButton } from "./animated-button";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -51,13 +52,13 @@ export function Nav() {
   return (
     <Drawer open={open} onOpenChange={setOpen} direction="top">
       <DrawerTrigger asChild>
-        <Button
+        <AnimatedButton
           className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
           size="xl"
         >
           Menu
           <span className="sr-only">Open navigation menu</span>
-        </Button>
+        </AnimatedButton>
       </DrawerTrigger>
       <DrawerContent className="border-primary h-full bg-[#5EC8D8] data-[vaul-drawer-direction=top]:max-h-[70vh] data-[vaul-drawer-direction=top]:rounded-b-3xl data-[vaul-drawer-direction=top]:border-b-10">
         <div className="relative mx-auto flex h-full w-full max-w-6xl flex-col py-3">

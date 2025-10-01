@@ -14,7 +14,7 @@ export function Stats() {
     },
     {
       title: "Total Value Locked",
-      value: "9,876,543 miles",
+      value: "9,876,543 BNB",
       description: "Utopia TVL",
     },
     {

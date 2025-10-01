@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import coin from "@/assets/images/coin.png";
-import { Button } from "@/components/ui/button";
+import { AnimatedButton } from "@/components/shared/animated-button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Paragraph } from "@/components/ui/paragraph";
@@ -35,15 +35,15 @@ export function BuyToken() {
               rewards, and your membership to an exclusive world. Secure your
               position and become a founding citizen today.
             </Paragraph>
-            <Button size="lg" className="rounded-full" asChild>
-              <Link
-                href="https://exchange.example.com/buy/utopia"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <Link
+              href="https://exchange.example.com/buy/utopia"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <AnimatedButton size="lg" className="rounded-full">
                 Buy Now
-              </Link>
-            </Button>
+              </AnimatedButton>
+            </Link>
           </div>
           <Image
             src={coin}

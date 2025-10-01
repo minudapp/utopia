@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEnsAvatar, useEnsName } from "wagmi";
 
-import { Button } from "@/components/ui/button";
+import { AnimatedButton } from "@/components/shared/animated-button";
 import { useWeb3Modal } from "./web3-modal-provider";
 
 export function ConnectWalletButton() {
@@ -13,7 +13,7 @@ export function ConnectWalletButton() {
   const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
 
   return (
-    <Button onClick={toggleModal}>
+    <AnimatedButton onClick={toggleModal}>
       {isConnected ? (
         <>
           {ensAvatar && (
@@ -24,6 +24,6 @@ export function ConnectWalletButton() {
       ) : (
         "Connect Wallet"
       )}
-    </Button>
+    </AnimatedButton>
   );
 }

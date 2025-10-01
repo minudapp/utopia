@@ -1,13 +1,11 @@
 "use client";
 
 import { MinusIcon, PlusIcon } from "lucide-react";
-import { motion } from "motion/react";
 import { useCallback, useRef } from "react";
 
+import { AnimatedButton } from "@/components/shared/animated-button";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
-const MotionButton = motion.create(Button);
 
 const MIN_AMOUNT = 0.01;
 const MAX_AMOUNT = 200;
@@ -95,24 +93,7 @@ export function Form() {
       </div>
 
       <div className="mt-6 space-y-3">
-        <MotionButton
-          className="relative w-full overflow-hidden rounded-lg py-3 font-bold"
-          whileHover="hover"
-          initial="rest"
-          animate="rest"
-        >
-          <motion.span
-            variants={{
-              rest: { scaleX: 0 },
-              hover: { scaleX: 1 },
-            }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="absolute inset-0 origin-left bg-blue-500"
-          />
-
-          {/* Button label (kept above overlay) */}
-          <span className="relative z-10">Hire Explorers</span>
-        </MotionButton>
+        <AnimatedButton className="w-full">Hire Explorers</AnimatedButton>
         <div className="grid grid-cols-2 gap-3">
           <Button variant="secondary" className="rounded-lg py-3 font-bold">
             Compound Explorers

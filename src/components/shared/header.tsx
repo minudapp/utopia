@@ -1,7 +1,7 @@
 import Link from "next/link";
 
+import { AnimatedButton } from "@/components/shared/animated-button";
 import { Box } from "@/components/ui/box";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ConnectWalletButton } from "@/modules/web3/components/connect-wallet-button";
 import { Nav } from "./nav";
@@ -26,25 +26,30 @@ export function Header({ type, className, ...props }: HeaderProps) {
     >
       <Box
         variant="container"
-        className={cn(
-          "flex items-center gap-3",
-          type === "app" ? "justify-end" : "justify-between",
-        )}
+        className="flex items-center justify-between gap-3"
       >
         {type === "marketing" && (
           <>
             <Nav />
-            <Button
-              className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
-              size="xl"
-              asChild
-            >
-              <Link href="/dapp">Join the Adventure</Link>
-            </Button>
+            <Link href="/dapp">
+              <AnimatedButton
+                className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
+                size="xl"
+              >
+                Join the Adventure
+              </AnimatedButton>
+            </Link>
           </>
         )}
 
-        {type === "app" && <ConnectWalletButton />}
+        {type === "app" && (
+          <>
+            <Link href="/" className="text-lg font-bold">
+              <AnimatedButton>Home</AnimatedButton>
+            </Link>
+            <ConnectWalletButton />
+          </>
+        )}
       </Box>
     </header>
   );
