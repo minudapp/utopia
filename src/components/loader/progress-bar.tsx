@@ -27,12 +27,5 @@ export function ProgressBar({ duration, onComplete }: ProgressBarProps) {
     onComplete();
   });
 
-  return (
-    <Progress
-      value={value}
-      max={100}
-      className="bg-background/20"
-      indicatorClassName="bg-background"
-    />
-  );
+  return <Progress value={value} max={100} />;
 }
