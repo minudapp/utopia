@@ -104,12 +104,8 @@ export function Integrations() {
           </Button> */}
         </div>
       </div>
-      <div className="absolute right-1/12 bottom-0 hidden w-80 lg:block">
-        <LottieAnimation
-          animationData={utopiaData}
-          id="utopia"
-          className="**:nth-[2]:fill-white"
-        />
+      <div className="absolute right-1/12 bottom-0 w-1/3 md:w-80">
+        <LottieAnimation animationData={utopiaData} id="utopia" />
       </div>
     </section>
   );

@@ -13,13 +13,13 @@ export function About() {
       id="about"
       className="bg-primary text-primary-foreground relative px-4 py-20"
     >
-      <div className="relative z-1 mx-auto grid w-full max-w-6xl grid-cols-1 content-center gap-10 md:grid-cols-2">
+      <div className="relative z-1 mx-auto grid w-full max-w-6xl grid-cols-1 content-center gap-4 md:grid-cols-2 md:gap-10">
         <Heading variant="h2">
           <span className="sr-only">Utopia Universe</span>
           <LottieAnimation
             animationData={utopiaUniverseData}
             id="utopia-universe"
-            className="h-full max-h-1/2 **:nth-[2]:fill-white"
+            className="h-full max-h-2/3 md:max-h-1/2"
           />
         </Heading>
         <div className="flex flex-col gap-5">
@@ -40,10 +40,10 @@ export function About() {
           </Paragraph>
         </div>
       </div>
-      <div className="absolute bottom-0 hidden w-96 md:left-1/8 md:block">
+      <div className="absolute bottom-0 left-1/8 w-48 lg:w-96">
         <LottieAnimation animationData={dolphinData} id="dolphin" />
       </div>
-      <div className="absolute -bottom-4 hidden w-64 md:right-1/8 md:block">
+      <div className="absolute right-1/8 -bottom-2 w-32 lg:-bottom-4 lg:w-64">
         <LottieAnimation animationData={parrotData} id="parrot" />
       </div>
     </section>

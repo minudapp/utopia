@@ -15,6 +15,11 @@ export function BuyToken() {
     >
       <Card className="w-full max-w-3xl rounded-xl shadow-lg">
         <CardContent className="grid grid-cols-1 gap-10 md:grid-cols-2">
+          <Image
+            src={coin}
+            alt="Utopia Token"
+            className="h-full w-full object-contain drop-shadow-lg md:order-last"
+          />
           <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
             <Heading variant="h2" className="text-center md:text-left">
               Utopia Token
@@ -45,11 +50,6 @@ export function BuyToken() {
               </AnimatedButton>
             </Link>
           </div>
-          <Image
-            src={coin}
-            alt="Utopia Token"
-            className="h-full w-full object-contain drop-shadow-lg"
-          />
         </CardContent>
       </Card>
     </section>
