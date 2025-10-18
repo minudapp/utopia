@@ -7,6 +7,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useBNBPrice } from "@/modules/web3/hooks/use-bnb-price";
 import { useTVL } from "@/modules/web3/hooks/use-tvl";
 
+const formatter = new Intl.NumberFormat("en-US", {
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 6,
+  notation: "compact",
+  compactDisplay: "short",
+});
+
+function formatNumber(value: bigint): string {
+  const parsed = formatEther(value);
+  const num = Number.parseFloat(parsed);
+  return formatter.format(num);
+}
+
 export function Stats() {
   const { data: tvl } = useTVL();
   const { data: bnbPrice } = useBNBPrice();
@@ -20,7 +33,7 @@ export function Stats() {
       },
       {
         title: "Total Value Locked",
-        value: tvl ? `${formatEther(tvl)} BNB` : "N/A",
+        value: tvl ? `${formatNumber(tvl)} BNB` : "N/A",
         description: "Utopia TVL",
       },
       {
