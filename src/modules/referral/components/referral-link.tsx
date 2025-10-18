@@ -25,7 +25,7 @@ export function ReferralLink() {
     try {
       await navigator.clipboard.writeText(link);
       setCopied(true);
-      timeout = setTimeout(() => setCopied(false), 2000);
+      timeout = window.setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy:", err);
     }
