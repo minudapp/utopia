@@ -1,14 +1,16 @@
 "use client";
 
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import "@rainbow-me/rainbowkit/styles.css";
 import {
   isServer,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import { WagmiProvider } from "wagmi";
+import { WagmiProvider, type State } from "wagmi";
 
-import { getConfig } from "@/lib/wagmi";
-import { Web3ModalProvider } from "./web3-modal-provider";
+import { chains, getConfig } from "@/lib/wagmi";
+import { connectors } from "@/modules/web3/utils/connectors";
 
 function makeQueryClient() {
   return new QueryClient({
@@ -38,13 +40,14 @@ function getQueryClient() {
   }
 }
 
-const config = getConfig();
+const config = getConfig(connectors);
 
 type Web3ProviderProps = {
   children: React.ReactNode;
+  initialState: State | undefined;
 };
 
-export function Web3Provider({ children }: Web3ProviderProps) {
+export function Web3Provider({ children, initialState }: Web3ProviderProps) {
   // NOTE: Avoid useState when initializing the query client if you don't
   //       have a suspense boundary between this and the code that may
   //       suspend because React will throw away the client on the initial
@@ -52,9 +55,11 @@ export function Web3Provider({ children }: Web3ProviderProps) {
   const queryClient = getQueryClient();
 
   return (
-    <WagmiProvider config={config}>
+    <WagmiProvider config={config} initialState={initialState}>
       <QueryClientProvider client={queryClient}>
-        <Web3ModalProvider>{children}</Web3ModalProvider>
+        <RainbowKitProvider initialChain={chains[0]}>
+          {children}
+        </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );

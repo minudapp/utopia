@@ -1,29 +1,73 @@
 "use client";
 
-import Image from "next/image";
-import { useEnsAvatar, useEnsName } from "wagmi";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 import { AnimatedButton } from "@/components/shared/animated-button";
-import { useWeb3Modal } from "./web3-modal-provider";
 
-export function ConnectWalletButton() {
-  const { address, formattedAddress, isConnected, toggleModal } =
-    useWeb3Modal();
-  const { data: ensName } = useEnsName({ address });
-  const { data: ensAvatar } = useEnsAvatar({ name: ensName ?? undefined });
-
+export function ConnectWalletButton(props: React.ComponentProps<"div">) {
   return (
-    <AnimatedButton onClick={toggleModal}>
-      {isConnected ? (
-        <>
-          {ensAvatar && (
-            <Image src={ensAvatar} alt="ENS Avatar" width={32} height={32} />
-          )}
-          {address && <span>{ensName ? `${ensName}` : formattedAddress}</span>}
-        </>
-      ) : (
-        "Connect Wallet"
-      )}
-    </AnimatedButton>
+    <ConnectButton.Custom>
+      {({
+        account,
+        chain,
+        mounted,
+        openConnectModal,
+        openChainModal,
+        openAccountModal,
+      }) => {
+        const ready = mounted;
+        const connected = ready && account && chain;
+
+        return (
+          <div
+            {...(!ready && {
+              "aria-hidden": true,
+              style: {
+                opacity: 0,
+                pointerEvents: "none",
+                userSelect: "none",
+              },
+            })}
+            {...props}
+          >
+            {(() => {
+              if (!connected) {
+                return (
+                  <AnimatedButton
+                    onClick={openConnectModal}
+                    type="button"
+                    className="w-full"
+                  >
+                    Connect Wallet
+                  </AnimatedButton>
+                );
+              }
+
+              if (chain.unsupported) {
+                return (
+                  <AnimatedButton
+                    onClick={openChainModal}
+                    type="button"
+                    className="w-full"
+                  >
+                    Wrong network
+                  </AnimatedButton>
+                );
+              }
+
+              return (
+                <AnimatedButton
+                  onClick={openAccountModal}
+                  type="button"
+                  className="w-full"
+                >
+                  {account.displayName}
+                </AnimatedButton>
+              );
+            })()}
+          </div>
+        );
+      }}
+    </ConnectButton.Custom>
   );
 }

@@ -2,10 +2,10 @@
 
 import { CoinsIcon, WalletIcon } from "lucide-react";
 import { formatEther } from "viem";
+import { useAccount } from "wagmi";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
 
 function formatAddress(address: string): string {
   return `${address.slice(0, 6)}...${address.slice(-4)}`;
@@ -18,7 +18,7 @@ function formatBalance(balance: bigint | null): string {
 }
 
 export function Wallet() {
-  const { isConnected, address } = useWeb3Modal();
+  const { isConnected, address } = useAccount();
 
   if (!isConnected) {
     return null;

@@ -1,20 +1,27 @@
 "use client";
 
 import { CheckIcon, CopyIcon, GiftIcon, Share2Icon } from "lucide-react";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useAccount } from "wagmi";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
 
 export function ReferralLink() {
-  const { address, isConnected } = useWeb3Modal();
+  const { address, isConnected } = useAccount();
   const [copied, setCopied] = useState(false);
+  const [referralLink, setReferralLink] = useState("");
+
+  useEffect(() => {
+    if (!address) return;
+
+    setReferralLink(`${window.location.origin}?ref=${address}`);
+  }, [address]);
 
   const copyReferralLink = useCallback(async () => {
     const link = `${window.location.origin}?ref=${address}`;
 
-    let timeout: NodeJS.Timeout | null = null;
+    let timeout: number | null = null;
     try {
       await navigator.clipboard.writeText(link);
       setCopied(true);
@@ -57,9 +64,7 @@ export function ReferralLink() {
         <div className="flex flex-col gap-3 rounded-lg border p-4">
           <p className="text-sm">YOUR LINK:</p>
           <p className="mt-1 truncate font-mono text-sm">
-            {isConnected
-              ? `${window.location.origin}?ref=${address}`
-              : "Connect wallet to generate link"}
+            {referralLink || "Connect wallet to generate link"}
           </p>
           <div className="flex gap-2">
             <Button

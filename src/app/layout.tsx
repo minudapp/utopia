@@ -2,7 +2,7 @@ import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-import { Loader } from "@/components/loader";
+import { Toaster } from "@/components/ui/sonner";
 import { geistMono, nunitoSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -57,8 +57,8 @@ export default function RootLayout({
           "relative font-sans antialiased",
         )}
       >
-        <Loader />
         {children}
+        <Toaster richColors />
         <Analytics />
       </body>
     </html>
