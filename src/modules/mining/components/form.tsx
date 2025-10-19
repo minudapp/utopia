@@ -27,12 +27,25 @@ function decrement(value: number, step: number): number {
 export function Form() {
   const inputRef = useRef<HTMLInputElement>(null);
   const searchParams = useSearchParams();
-  const { hireExplorers, isPending: isHireExplorersPending } =
-    useHireExplorers();
+  const { hireExplorers, isPending: isHireExplorersPending } = useHireExplorers(
+    {
+      onConfirmed() {
+        resetAmount();
+      },
+    },
+  );
   const { compoundExplorers, isPending: isCompoundExplorersPending } =
-    useCompoundExplorers();
+    useCompoundExplorers({
+      onConfirmed() {
+        resetAmount();
+      },
+    });
   const { collectRewards, isPending: isCollectRewardsPending } =
-    useCollectRewards();
+    useCollectRewards({
+      onConfirmed() {
+        resetAmount();
+      },
+    });
 
   const referrer = searchParams.get("referrer") ?? null;
   const ref =
@@ -58,17 +71,23 @@ export function Form() {
     () => adjustAmount(increment),
     [adjustAmount],
   );
+
   const decrementAmount = useCallback(
     () => adjustAmount(decrement),
     [adjustAmount],
   );
 
+  const resetAmount = useCallback(() => {
+    if (!inputRef.current) return;
+
+    inputRef.current.value = MIN_AMOUNT.toFixed(2);
+    inputRef.current.dispatchEvent(new Event("input", { bubbles: true }));
+  }, []);
+
   const onHireExplorers = useCallback(() => {
     if (!inputRef.current) return;
 
     hireExplorers(inputRef.current.value, ref);
-
-    inputRef.current.value = MIN_AMOUNT.toFixed(2);
   }, [hireExplorers, ref]);
 
   const onCompoundExplorers = useCallback(() => {

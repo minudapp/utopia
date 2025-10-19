@@ -12,7 +12,11 @@ import { abi } from "@/modules/web3/abis/miner";
 import { MINER_ADDRESS } from "@/modules/web3/constants";
 import { useUserState } from "@/modules/web3/hooks/use-user-state";
 
-export function useHireExplorers() {
+interface UseHireExplorersOptions {
+  onConfirmed: () => void;
+}
+
+export function useHireExplorers({ onConfirmed }: UseHireExplorersOptions) {
   const config = useConfig();
   const queryClient = useQueryClient();
   const { data: hash, writeContract } = useWriteContract({ config });
@@ -28,13 +32,14 @@ export function useHireExplorers() {
   const invalidateRef = useRef(() =>
     queryClient.invalidateQueries({ queryKey }),
   );
+  const onConfirmedRef = useRef(onConfirmed);
 
   const hireExplorers = useCallback(
     (amount: string, ref: Address) => {
       writeContract({
         abi,
         address: MINER_ADDRESS,
-        functionName: "buyBones", // TODO: change to hireExplorers
+        functionName: "hireExplorers",
         args: [ref],
         value: parseEther(amount),
       });
@@ -44,6 +49,7 @@ export function useHireExplorers() {
 
   useEffect(() => {
     if (isConfirmed) {
+      onConfirmedRef.current();
       invalidateRef.current();
       toast.success("Explorers hired successfully!");
     }

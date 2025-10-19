@@ -1,26 +1,28 @@
 "use client";
 
 import { ExternalLinkIcon } from "lucide-react";
+import { useCallback } from "react";
 import { useAccount } from "wagmi";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { useReferralLink } from "@/modules/referral/hooks/use-referral-link";
 
 export function SocialSharing({
   className,
   ...props
 }: React.ComponentProps<typeof Card>) {
-  const { address, isConnected } = useAccount();
+  const { isConnected } = useAccount();
+  const referralLink = useReferralLink();
 
-  const copyReferralLink = async () => {
-    const link = `${window.location.origin}?ref=${address}`;
+  const copyReferralLink = useCallback(async () => {
     try {
-      await navigator.clipboard.writeText(link);
+      await navigator.clipboard.writeText(referralLink);
     } catch (err) {
       console.error("Failed to copy:", err);
     }
-  };
+  }, [referralLink]);
 
   return (
     <Card
@@ -40,7 +42,7 @@ export function SocialSharing({
         <Button
           onClick={() =>
             window.open(
-              `https://twitter.com/intent/tweet?text=Start mining BNB with MinuBones! Use my referral link: ${window.location.origin}?ref=${address}`,
+              `https://twitter.com/intent/tweet?text=Start earning BNB with Utopia! Use my referral link: ${referralLink}`,
               "_blank",
             )
           }
@@ -52,7 +54,7 @@ export function SocialSharing({
         <Button
           onClick={() =>
             window.open(
-              `https://t.me/share/url?url=${window.location.origin}?ref=${address}&text=Start mining BNB with MinuBones!`,
+              `https://t.me/share/url?url=${referralLink}&text=Start earning BNB with Utopia!`,
               "_blank",
             )
           }
