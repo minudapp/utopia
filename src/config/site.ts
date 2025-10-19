@@ -1,5 +1,3 @@
-// import { env } from "./env/client";
-
 const url = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 export type SiteConfig = {
@@ -16,12 +14,21 @@ export type SiteConfig = {
 };
 
 export const siteConfig = Object.freeze({
-  title: "My Site",
-  description: "A sample site configuration",
-  keywords: ["example", "site", "config"],
-  url: url,
+  title: "Utopia",
+  description: "A decentralized mining simulation game.",
+  keywords: [
+    "utopia",
+    "mining",
+    "simulation",
+    "game",
+    "decentralized",
+    "blockchain",
+    "web3",
+  ],
+  url,
   author: {
     name: "George Vlassis",
+    email: "geovla.dev@gmail.com",
   },
-  ogImage: `${url}/og-image.png`,
+  ogImage: `${url}/og-image.jpg`,
 }) satisfies SiteConfig;
