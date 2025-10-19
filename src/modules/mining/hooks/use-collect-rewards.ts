@@ -11,7 +11,11 @@ import { abi } from "@/modules/web3/abis/miner";
 import { MINER_ADDRESS } from "@/modules/web3/constants";
 import { useUserState } from "@/modules/web3/hooks/use-user-state";
 
-export function useCollectRewards() {
+interface UseCollectRewardsOptions {
+  onConfirmed: () => void;
+}
+
+export function useCollectRewards({ onConfirmed }: UseCollectRewardsOptions) {
   const config = useConfig();
   const queryClient = useQueryClient();
   const { data: hash, writeContract } = useWriteContract({ config });
@@ -27,17 +31,19 @@ export function useCollectRewards() {
   const invalidateRef = useRef(() =>
     queryClient.invalidateQueries({ queryKey }),
   );
+  const onConfirmedRef = useRef(onConfirmed);
 
   const collectRewards = useCallback(() => {
     writeContract({
       abi,
       address: MINER_ADDRESS,
-      functionName: "sellBones", // TODO: change to collectRewards
+      functionName: "collectRewards",
     });
   }, [writeContract]);
 
   useEffect(() => {
     if (isConfirmed) {
+      onConfirmedRef.current();
       invalidateRef.current();
       toast.success("Rewards collected successfully!");
     }

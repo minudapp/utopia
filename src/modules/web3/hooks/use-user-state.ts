@@ -12,7 +12,7 @@ export function useUserState() {
       {
         address: MINER_ADDRESS,
         abi,
-        functionName: "getMyMiners",
+        functionName: "getMyExplorers",
         args: [address!],
       },
       {

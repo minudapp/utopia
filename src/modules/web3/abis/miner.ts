@@ -45,17 +45,17 @@ export const abi = [
       {
         indexed: false,
         internalType: "uint256",
-        name: "ethSpent",
+        name: "bonesSold",
         type: "uint256",
       },
       {
         indexed: false,
         internalType: "uint256",
-        name: "bonesBought",
+        name: "ethReceived",
         type: "uint256",
       },
     ],
-    name: "Buy",
+    name: "Collect",
     type: "event",
   },
   {
@@ -69,10 +69,43 @@ export const abi = [
         type: "uint256",
       },
     ],
-    name: "Hatch",
+    name: "Compound",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      { indexed: true, internalType: "address", name: "user", type: "address" },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "ethSpent",
+        type: "uint256",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "bonesBought",
+        type: "uint256",
+      },
+    ],
+    name: "Hire",
     type: "event",
   },
   { anonymous: false, inputs: [], name: "Initialized", type: "event" },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "newMinimumTokenBalance",
+        type: "uint256",
+      },
+    ],
+    name: "MinimumTokenBalanceUpdated",
+    type: "event",
+  },
   {
     anonymous: false,
     inputs: [
@@ -95,26 +128,6 @@ export const abi = [
   {
     anonymous: false,
     inputs: [
-      { indexed: true, internalType: "address", name: "user", type: "address" },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "bonesSold",
-        type: "uint256",
-      },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "ethReceived",
-        type: "uint256",
-      },
-    ],
-    name: "Sell",
-    type: "event",
-  },
-  {
-    anonymous: false,
-    inputs: [
       {
         indexed: true,
         internalType: "address",
@@ -130,7 +143,7 @@ export const abi = [
     inputs: [
       {
         indexed: false,
-        internalType: "enum IMinuBones.TradingState",
+        internalType: "enum IUtopiaMiner.TradingState",
         name: "newState",
         type: "uint8",
       },
@@ -143,13 +156,6 @@ export const abi = [
     name: "beanRewards",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "ref", type: "address" }],
-    name: "buyBones",
-    outputs: [],
-    stateMutability: "payable",
     type: "function",
   },
   {
@@ -174,6 +180,20 @@ export const abi = [
     name: "calculateBoneSell",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "collectRewards",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [{ internalType: "address", name: "ref", type: "address" }],
+    name: "compoundExplorers",
+    outputs: [],
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -213,16 +233,16 @@ export const abi = [
   },
   {
     inputs: [{ internalType: "address", name: "adr", type: "address" }],
-    name: "getMyMiners",
+    name: "getMyExplorers",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [{ internalType: "address", name: "ref", type: "address" }],
-    name: "hatchBones",
+    name: "hireExplorers",
     outputs: [],
-    stateMutability: "nonpayable",
+    stateMutability: "payable",
     type: "function",
   },
   {
@@ -247,8 +267,14 @@ export const abi = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "sellBones",
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "newMinimumTokenBalance",
+        type: "uint256",
+      },
+    ],
+    name: "setMinimumTokenBalance",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -263,7 +289,7 @@ export const abi = [
   {
     inputs: [
       {
-        internalType: "enum IMinuBones.TradingState",
+        internalType: "enum IUtopiaMiner.TradingState",
         name: "newTradingState",
         type: "uint8",
       },
@@ -284,7 +310,11 @@ export const abi = [
     inputs: [],
     name: "tradingState",
     outputs: [
-      { internalType: "enum IMinuBones.TradingState", name: "", type: "uint8" },
+      {
+        internalType: "enum IUtopiaMiner.TradingState",
+        name: "",
+        type: "uint8",
+      },
     ],
     stateMutability: "view",
     type: "function",

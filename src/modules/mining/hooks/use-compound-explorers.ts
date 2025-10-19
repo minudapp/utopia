@@ -12,7 +12,13 @@ import { abi } from "@/modules/web3/abis/miner";
 import { MINER_ADDRESS } from "@/modules/web3/constants";
 import { useUserState } from "@/modules/web3/hooks/use-user-state";
 
-export function useCompoundExplorers() {
+interface UseCompoundExplorersOptions {
+  onConfirmed: () => void;
+}
+
+export function useCompoundExplorers({
+  onConfirmed,
+}: UseCompoundExplorersOptions) {
   const config = useConfig();
   const queryClient = useQueryClient();
   const { data: hash, writeContract } = useWriteContract({ config });
@@ -28,13 +34,14 @@ export function useCompoundExplorers() {
   const invalidateRef = useRef(() =>
     queryClient.invalidateQueries({ queryKey }),
   );
+  const onConfirmedRef = useRef(onConfirmed);
 
   const compoundExplorers = useCallback(
     (ref: Address) => {
       writeContract({
         abi,
         address: MINER_ADDRESS,
-        functionName: "hatchBones", // TODO: change to compoundExplorers
+        functionName: "compoundExplorers",
         args: [ref],
       });
     },
@@ -43,6 +50,7 @@ export function useCompoundExplorers() {
 
   useEffect(() => {
     if (isConfirmed) {
+      onConfirmedRef.current();
       invalidateRef.current();
       toast.success("Explorers compounded successfully!");
     }

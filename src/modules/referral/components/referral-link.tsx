@@ -1,29 +1,22 @@
 "use client";
 
 import { CheckIcon, CopyIcon, GiftIcon, Share2Icon } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useAccount } from "wagmi";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useReferralLink } from "@/modules/referral/hooks/use-referral-link";
 
 export function ReferralLink() {
-  const { address, isConnected } = useAccount();
+  const { isConnected } = useAccount();
   const [copied, setCopied] = useState(false);
-  const [referralLink, setReferralLink] = useState("");
-
-  useEffect(() => {
-    if (!address) return;
-
-    setReferralLink(`${window.location.origin}?ref=${address}`);
-  }, [address]);
+  const referralLink = useReferralLink();
 
   const copyReferralLink = useCallback(async () => {
-    const link = `${window.location.origin}?ref=${address}`;
-
     let timeout: number | null = null;
     try {
-      await navigator.clipboard.writeText(link);
+      await navigator.clipboard.writeText(referralLink);
       setCopied(true);
       timeout = window.setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -33,16 +26,15 @@ export function ReferralLink() {
     return () => {
       if (timeout) clearTimeout(timeout);
     };
-  }, [address]);
+  }, [referralLink]);
 
   const shareReferralLink = useCallback(async () => {
-    const link = `${window.location.origin}?ref=${address}`;
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Join MinuBones Mining",
-          text: "Start mining BNB with MinuBones! Use my referral link to get started.",
-          url: link,
+          title: "Join Utopia World",
+          text: "Start earning BNB with Utopia! Use my referral link to get started.",
+          url: referralLink,
         });
       } catch (err) {
         console.error("Failed to share:", err);
@@ -50,7 +42,7 @@ export function ReferralLink() {
     } else {
       copyReferralLink();
     }
-  }, [address, copyReferralLink]);
+  }, [referralLink, copyReferralLink]);
 
   return (
     <Card className="text-muted relative border-4 border-[#00142d] bg-[#fbf7eb] lg:col-span-2">
