@@ -1,28 +1,49 @@
 "use client";
 
+import { useMemo } from "react";
+import { formatEther } from "viem";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-// import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
+import { useBNBPrice } from "@/modules/web3/hooks/use-bnb-price";
+import { useTVL } from "@/modules/web3/hooks/use-tvl";
+
+const formatter = new Intl.NumberFormat("en-US", {
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 6,
+  notation: "compact",
+  compactDisplay: "short",
+});
+
+function formatNumber(value: bigint): string {
+  const parsed = formatEther(value);
+  const num = Number.parseFloat(parsed);
+  return formatter.format(num);
+}
 
 export function Stats() {
-  // const { isConnected } = useWeb3Modal();
+  const { data: tvl } = useTVL();
+  const { data: bnbPrice } = useBNBPrice();
 
-  const stats = [
-    {
-      title: "Journey Daily Progress",
-      value: "up to 8%",
-      description: "Daily percentage rate",
-    },
-    {
-      title: "Total Value Locked",
-      value: "9,876,543 BNB",
-      description: "Utopia TVL",
-    },
-    {
-      title: "BNB price",
-      value: "$1.032",
-      description: "Current market price",
-    },
-  ];
+  const stats = useMemo(
+    () => [
+      {
+        title: "Journey Daily Progress",
+        value: "up to 8%",
+        description: "Daily percentage rate",
+      },
+      {
+        title: "Total Value Locked",
+        value: tvl ? `${formatNumber(tvl)} BNB` : "N/A",
+        description: "Utopia TVL",
+      },
+      {
+        title: "BNB price",
+        value: bnbPrice ? `$${bnbPrice.toFixed(2)}` : "N/A",
+        description: "Current market price",
+      },
+    ],
+    [bnbPrice, tvl],
+  );
 
   return (
     <div className="space-y-4">

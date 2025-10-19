@@ -1,11 +1,16 @@
 "use client";
 
 import { MinusIcon, PlusIcon } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import { useCallback, useRef } from "react";
+import { isAddress, zeroAddress } from "viem";
 
 import { AnimatedButton } from "@/components/shared/animated-button";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useCollectRewards } from "@/modules/mining/hooks/use-collect-rewards";
+import { useCompoundExplorers } from "@/modules/mining/hooks/use-compound-explorers";
+import { useHireExplorers } from "@/modules/mining/hooks/use-hire-explorers";
 
 const MIN_AMOUNT = 0.01;
 const MAX_AMOUNT = 200;
@@ -21,6 +26,17 @@ function decrement(value: number, step: number): number {
 
 export function Form() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const searchParams = useSearchParams();
+  const { hireExplorers, isPending: isHireExplorersPending } =
+    useHireExplorers();
+  const { compoundExplorers, isPending: isCompoundExplorersPending } =
+    useCompoundExplorers();
+  const { collectRewards, isPending: isCollectRewardsPending } =
+    useCollectRewards();
+
+  const referrer = searchParams.get("referrer") ?? null;
+  const ref =
+    referrer && isAddress(referrer, { strict: false }) ? referrer : zeroAddress;
 
   const adjustAmount = useCallback(
     (cb: (value: number, step: number) => number) => {
@@ -47,6 +63,27 @@ export function Form() {
     [adjustAmount],
   );
 
+  const onHireExplorers = useCallback(() => {
+    if (!inputRef.current) return;
+
+    hireExplorers(inputRef.current.value, ref);
+
+    inputRef.current.value = MIN_AMOUNT.toFixed(2);
+  }, [hireExplorers, ref]);
+
+  const onCompoundExplorers = useCallback(() => {
+    compoundExplorers(ref);
+  }, [compoundExplorers, ref]);
+
+  const onCollectRewards = useCallback(() => {
+    collectRewards();
+  }, [collectRewards]);
+
+  const isPending =
+    isHireExplorersPending ||
+    isCompoundExplorersPending ||
+    isCollectRewardsPending;
+
   return (
     <form>
       <div className="space-y-4">
@@ -70,10 +107,10 @@ export function Form() {
             <Input
               ref={inputRef}
               inputMode="numeric"
-              step="0.01"
-              min="0.01"
-              max="200"
-              defaultValue="0.01"
+              step={STEP}
+              min={MIN_AMOUNT}
+              max={MAX_AMOUNT}
+              defaultValue={MIN_AMOUNT.toFixed(2)}
               className="border-0 bg-transparent text-center text-lg font-bold focus:ring-0 focus:outline-none"
             />
             <Button
@@ -93,12 +130,31 @@ export function Form() {
       </div>
 
       <div className="mt-6 space-y-3">
-        <AnimatedButton className="w-full">Hire Explorers</AnimatedButton>
+        <AnimatedButton
+          type="button"
+          className="w-full"
+          onClick={onHireExplorers}
+          disabled={isPending}
+        >
+          Hire Explorers
+        </AnimatedButton>
         <div className="grid grid-cols-2 gap-3">
-          <Button variant="secondary" className="rounded-lg py-3 font-bold">
+          <Button
+            type="button"
+            variant="secondary"
+            className="rounded-lg py-3 font-bold"
+            onClick={onCompoundExplorers}
+            disabled={isPending}
+          >
             Compound Explorers
           </Button>
-          <Button variant="secondary" className="rounded-lg py-3 font-bold">
+          <Button
+            type="button"
+            variant="secondary"
+            className="rounded-lg py-3 font-bold"
+            onClick={onCollectRewards}
+            disabled={isPending}
+          >
             Collect Rewards
           </Button>
         </div>

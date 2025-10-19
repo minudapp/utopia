@@ -1,17 +1,17 @@
 "use client";
 
 import { ExternalLinkIcon } from "lucide-react";
+import { useAccount } from "wagmi";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { useWeb3Modal } from "@/modules/web3/components/web3-modal-provider";
 
 export function SocialSharing({
   className,
   ...props
 }: React.ComponentProps<typeof Card>) {
-  const { address, isConnected } = useWeb3Modal();
+  const { address, isConnected } = useAccount();
 
   const copyReferralLink = async () => {
     const link = `${window.location.origin}?ref=${address}`;
