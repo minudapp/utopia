@@ -5,7 +5,6 @@ export type SiteConfig = {
   description: string;
   keywords: string[];
   url: string;
-  ogImage: string;
   author: {
     name: string;
     email?: string;
@@ -30,5 +29,4 @@ export const siteConfig = Object.freeze({
     name: "George Vlassis",
     email: "geovla.dev@gmail.com",
   },
-  ogImage: `${url}/og-image.jpg`,
 }) satisfies SiteConfig;
