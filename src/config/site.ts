@@ -26,7 +26,6 @@ export const siteConfig = Object.freeze({
   ],
   url,
   author: {
-    name: "George Vlassis",
-    email: "geovla.dev@gmail.com",
+    name: "Utopia Team",
   },
 }) satisfies SiteConfig;
