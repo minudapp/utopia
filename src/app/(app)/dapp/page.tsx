@@ -1,10 +1,15 @@
 import { list } from "@vercel/blob";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import { PageContainer } from "@/components/shared/page-container";
 import { Video } from "@/components/shared/video";
 import { Mining } from "./_components/mining";
 import { Referral } from "./_components/referral";
+
+export const metadata: Metadata = {
+  title: "DApp",
+};
 
 export default async function DappPage() {
   const { blobs } = await list({

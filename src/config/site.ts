@@ -14,15 +14,21 @@ export type SiteConfig = {
 
 export const siteConfig = Object.freeze({
   title: "Utopia",
-  description: "A decentralized mining simulation game.",
+  description:
+    "A digital world where exploration builds community and generates rewards.",
   keywords: [
-    "utopia",
-    "mining",
-    "simulation",
-    "game",
-    "decentralized",
-    "blockchain",
-    "web3",
+    "UtopiaBNB",
+    "digital world",
+    "explore to earn",
+    "web3 community",
+    "digital exploration",
+    "virtual rewards",
+    "NFT world",
+    "metaverse platform",
+    "blockchain community",
+    "social exploration",
+    "decentralized rewards",
+    "crypto exploration",
   ],
   url,
   author: {

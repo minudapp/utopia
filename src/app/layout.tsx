@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: siteConfig.title,
+  title: { default: siteConfig.title, template: `%s | ${siteConfig.title}` },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   authors: {
