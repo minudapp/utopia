@@ -139,10 +139,10 @@ export function Nav() {
 
             <ul className="flex items-center gap-3">
               <li className="text-foreground text-sm font-medium uppercase transition-colors hover:text-[#c5fbff]">
-                <Link href="#">Privacy Policy</Link>
+                <Link href="/privacy">Privacy Policy</Link>
               </li>
               <li className="text-foreground text-sm font-medium uppercase transition-colors hover:text-[#c5fbff]">
-                <Link href="#">Terms of use</Link>
+                <Link href="/terms">Terms of use</Link>
               </li>
             </ul>
           </DrawerFooter>

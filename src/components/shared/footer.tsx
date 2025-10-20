@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Paragraph } from "@/components/ui/paragraph";
 import { cn } from "@/lib/utils";
+import { ExternalLink } from "./external-link";
 import { LogoWithText } from "./logo";
 
 export function Footer({
@@ -26,14 +27,20 @@ export function Footer({
             <h3 className="text-foreground mb-4 font-semibold">Community</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <ExternalLink
+                  href="https://x.com/UtopiaBNB"
+                  className="underline-offset-4 hover:underline"
+                >
                   Twitter
-                </Link>
+                </ExternalLink>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <ExternalLink
+                  href="https://t.me/UtopiaBNB"
+                  className="underline-offset-4 hover:underline"
+                >
                   Telegram
-                </Link>
+                </ExternalLink>
               </li>
             </ul>
           </div>
@@ -42,17 +49,20 @@ export function Footer({
             <h3 className="text-foreground mb-4 font-semibold">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link
+                <ExternalLink
                   href="https://docs.utopiabnb.com"
-                  className="hover:text-primary transition-colors"
+                  className="underline-offset-4 hover:underline"
                 >
                   Documentation
-                </Link>
+                </ExternalLink>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <ExternalLink
+                  href="https://docs.utopiabnb.com/help-center"
+                  className="underline-offset-4 hover:underline"
+                >
                   Support
-                </Link>
+                </ExternalLink>
               </li>
             </ul>
           </div>
@@ -61,12 +71,18 @@ export function Footer({
             <h3 className="text-foreground mb-4 font-semibold">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/terms"
+                  className="underline-offset-4 hover:underline"
+                >
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/privacy"
+                  className="underline-offset-4 hover:underline"
+                >
                   Privacy Policy
                 </Link>
               </li>

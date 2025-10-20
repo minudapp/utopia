@@ -22,7 +22,7 @@ export function Mining() {
           <Card className="justify-center md:col-span-2">
             <CardContent className="space-y-6">
               <p className="text-muted-foreground text-center text-sm">
-                Connect your wallet to start exploring Utopia and earning BEANs!
+                Connect your wallet to start exploring Utopia and earning BNB!
               </p>
               <ConnectWalletButton />
             </CardContent>
