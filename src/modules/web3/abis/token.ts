@@ -2,6 +2,8 @@ export const abi = [
   {
     inputs: [
       { internalType: "address", name: "ownerAddress", type: "address" },
+      { internalType: "address", name: "minerAddress_", type: "address" },
+      { internalType: "address", name: "marketingAddress_", type: "address" },
     ],
     stateMutability: "nonpayable",
     type: "constructor",
@@ -273,14 +275,14 @@ export const abi = [
   },
   {
     inputs: [],
-    name: "launchBlock",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    name: "lpPair",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
   {
     inputs: [],
-    name: "lpPair",
+    name: "marketingAddress",
     outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
@@ -289,6 +291,13 @@ export const abi = [
     inputs: [],
     name: "marketingFee",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "minerAddress",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
     stateMutability: "view",
     type: "function",
   },
@@ -413,4 +422,5 @@ export const abi = [
     stateMutability: "nonpayable",
     type: "function",
   },
+  { stateMutability: "payable", type: "receive" },
 ] as const;

@@ -13,11 +13,6 @@ import {
   trustWallet,
   walletConnectWallet,
 } from "@rainbow-me/rainbowkit/wallets";
-import { bscTestnet } from "wagmi/chains";
-
-// Define supported chains
-export const chains = [bscTestnet] as const;
-// export const chains = [bsc] as const;
 
 export const connectors = connectorsForWallets(
   [

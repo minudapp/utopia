@@ -1,3 +1,4 @@
+import { bsc } from "viem/chains";
 import {
   cookieStorage,
   createConfig,
@@ -5,11 +6,8 @@ import {
   http,
   type CreateConnectorFn,
 } from "wagmi";
-import { bscTestnet } from "wagmi/chains";
 
-// Define supported chains
-export const chains = [bscTestnet] as const;
-// export const chains = [bsc] as const;
+export const chains = [bsc] as const;
 
 export function getConfig(connectors: CreateConnectorFn[]) {
   return createConfig({
@@ -21,8 +19,8 @@ export function getConfig(connectors: CreateConnectorFn[]) {
     connectors,
     chains,
     transports: {
-      // [bsc.id]: http(),
-      [bscTestnet.id]: http(),
+      [bsc.id]: http(),
+      // [bscTestnet.id]: http(),
     },
     batch: {
       multicall: true,
@@ -39,8 +37,8 @@ export function getServerConfig() {
     }),
     chains,
     transports: {
-      // [bsc.id]: http(),
-      [bscTestnet.id]: http(),
+      [bsc.id]: http(),
+      // [bscTestnet.id]: http(),
     },
     batch: {
       multicall: true,

@@ -99,7 +99,7 @@ export async function BuyToken() {
                 </span>
               </li>
               <li className="text-center text-lg md:text-left">
-                CA: <span className="font-semibold">TBA</span>
+                CA: <span className="font-semibold">{TOKEN_ADDRESS}</span>
                 <CopyButton value={TOKEN_ADDRESS} className="ml-2 size-7" />
               </li>
             </ul>
