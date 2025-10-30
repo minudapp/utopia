@@ -110,7 +110,7 @@ export async function BuyToken() {
               position and become a founding citizen today.
             </Paragraph>
             <Link
-              href="https://exchange.example.com/buy/utopia"
+              href="https://pancakeswap.finance/swap?outputCurrency=0xd83C128e7498bE555845A6dc331A99E1524C1777"
               target="_blank"
               rel="noopener noreferrer"
             >
