@@ -68,7 +68,7 @@ export async function BuyToken() {
       id="buy-token"
       className="flex min-h-[75svh] items-center justify-center bg-[#00e2ff] px-4 py-20"
     >
-      <Card className="w-full max-w-3xl rounded-xl shadow-lg">
+      <Card className="w-full max-w-4xl rounded-xl shadow-lg">
         <CardContent className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <Image
             src={coin}
