@@ -78,8 +78,8 @@ export function MiningCard(props: React.ComponentProps<typeof Card>) {
           Collect your Rewards.
         </span>
         <span className="text-muted-foreground text-xs">
-          * For a full map and instructions, please consult our:
-          <Link href="http://www.google.com/" target="_blank">
+          * For a full map and instructions, please consult our:{" "}
+          <Link href="https://docs.utopiabnb.com" target="_blank">
             Expedition Manual
           </Link>
         </span>
