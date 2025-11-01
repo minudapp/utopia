@@ -68,14 +68,14 @@ export async function BuyToken() {
       id="buy-token"
       className="flex min-h-[75svh] items-center justify-center bg-[#00e2ff] px-4 py-20"
     >
-      <Card className="w-full max-w-4xl rounded-xl shadow-lg">
-        <CardContent className="grid grid-cols-1 gap-10 md:grid-cols-2">
+      <Card className="w-full max-w-6xl rounded-xl shadow-lg">
+        <CardContent className="grid grid-cols-1 gap-10 md:grid-cols-5">
           <Image
             src={coin}
             alt="Utopia Token"
-            className="h-full w-full object-contain drop-shadow-lg md:order-last"
+            className="h-full w-full object-contain drop-shadow-lg md:order-last md:col-span-2"
           />
-          <div className="flex flex-1 flex-col items-center gap-6 md:items-start">
+          <div className="@container/buy-token flex flex-1 flex-col items-center gap-6 md:col-span-3 md:items-start md:gap-8">
             <Heading variant="h2" className="text-center md:text-left">
               Utopia Token
             </Heading>
@@ -99,7 +99,13 @@ export async function BuyToken() {
                 </span>
               </li>
               <li className="text-center text-lg md:text-left">
-                CA: <span className="font-semibold">{TOKEN_ADDRESS}</span>
+                CA:{" "}
+                <span className="hidden font-semibold @lg/buy-token:inline-block">
+                  {TOKEN_ADDRESS}
+                </span>
+                <span className="font-semibold @lg/buy-token:hidden">
+                  {TOKEN_ADDRESS.slice(0, 6)}...{TOKEN_ADDRESS.slice(-5)}
+                </span>
                 <CopyButton value={TOKEN_ADDRESS} className="ml-2 size-7" />
               </li>
             </ul>

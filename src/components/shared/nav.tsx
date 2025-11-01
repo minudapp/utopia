@@ -107,7 +107,7 @@ export function Nav() {
             <ul className="relative flex items-center gap-4 self-center md:right-1/6 md:self-end">
               <li>
                 <Link
-                  href="https://t.me/Utopia_BNB"
+                  href="https://t.me/UtopiaBNB"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -122,7 +122,7 @@ export function Nav() {
               </li>
               <li>
                 <Link
-                  href="https://twitter.com/Utopia_BNB"
+                  href="https://x.com/UtopiaBNB"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
