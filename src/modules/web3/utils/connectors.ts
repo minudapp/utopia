@@ -4,6 +4,7 @@ import { connectorsForWallets } from "@rainbow-me/rainbowkit";
 import {
   baseAccount,
   binanceWallet,
+  bitgetWallet,
   gateWallet,
   metaMaskWallet,
   okxWallet,
@@ -18,7 +19,7 @@ export const connectors = connectorsForWallets(
   [
     {
       groupName: "Recommended",
-      wallets: [metaMaskWallet, binanceWallet, trustWallet, rainbowWallet],
+      wallets: [metaMaskWallet, binanceWallet, trustWallet, bitgetWallet],
     },
     {
       groupName: "Others",
@@ -29,6 +30,7 @@ export const connectors = connectorsForWallets(
         okxWallet,
         tokenPocketWallet,
         safepalWallet,
+        rainbowWallet,
       ],
     },
   ],
