@@ -79,12 +79,12 @@ export function Nav() {
             <nav className="md:col-span-2">
               <ul className="grid grid-cols-2 gap-3">
                 <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
-                  <Link href="#about" onClick={handleLinkClick}>
+                  <Link href="/#about" onClick={handleLinkClick}>
                     The Utopia
                   </Link>
                 </li>
                 <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
-                  <Link href="#buy-token" onClick={handleLinkClick}>
+                  <Link href="/#buy-token" onClick={handleLinkClick}>
                     Buy $UTOPIA
                   </Link>
                 </li>
@@ -95,7 +95,7 @@ export function Nav() {
                   <Link href="https://docs.utopiabnb.com">Documentation</Link>
                 </li>
                 <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
-                  <Link href="#integrations" onClick={handleLinkClick}>
+                  <Link href="/#integrations" onClick={handleLinkClick}>
                     Integrations
                   </Link>
                 </li>

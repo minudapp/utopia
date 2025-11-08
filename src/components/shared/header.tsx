@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { AnimatedButton } from "@/components/shared/animated-button";
 import { Box } from "@/components/ui/box";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ConnectWalletButton } from "@/modules/web3/components/connect-wallet-button";
 import { Nav } from "./nav";
@@ -47,6 +48,14 @@ export function Header({ type, className, ...props }: HeaderProps) {
             <Link href="/" className="text-lg font-bold">
               <AnimatedButton>Home</AnimatedButton>
             </Link>
+            <Button variant="secondary" asChild>
+              <Link
+                href="https://www.cyberscope.io/audits/1-utopia?assessmentIndex=1"
+                target="_blank"
+              >
+                View Audit Report
+              </Link>
+            </Button>
             <ConnectWalletButton />
           </>
         )}
