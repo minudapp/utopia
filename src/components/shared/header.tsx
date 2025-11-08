@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { AnimatedButton } from "@/components/shared/animated-button";
 import { Box } from "@/components/ui/box";
@@ -11,6 +14,8 @@ type HeaderProps = React.ComponentProps<"header"> & {
 };
 
 export function Header({ type, className, ...props }: HeaderProps) {
+  const pathname = usePathname();
+
   return (
     <header
       style={
@@ -30,7 +35,18 @@ export function Header({ type, className, ...props }: HeaderProps) {
       >
         {type === "marketing" && (
           <>
-            <Nav />
+            {pathname === "/" ? (
+              <Nav />
+            ) : (
+              <Link href="/">
+                <AnimatedButton
+                  className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
+                  size="xl"
+                >
+                  Home
+                </AnimatedButton>
+              </Link>
+            )}
             <Link href="/dapp">
               <AnimatedButton
                 className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
@@ -46,6 +62,12 @@ export function Header({ type, className, ...props }: HeaderProps) {
           <>
             <Link href="/" className="text-lg font-bold">
               <AnimatedButton>Home</AnimatedButton>
+            </Link>
+            <Link
+              href="https://www.cyberscope.io/audits/1-utopia?assessmentIndex=1"
+              target="_blank"
+            >
+              <AnimatedButton>View Audit Report</AnimatedButton>
             </Link>
             <ConnectWalletButton />
           </>

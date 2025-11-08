@@ -115,15 +115,26 @@ export async function BuyToken() {
               rewards, and your membership to an exclusive world. Secure your
               position and become a founding citizen today.
             </Paragraph>
-            <Link
-              href="https://pancakeswap.finance/swap?outputCurrency=0xd83C128e7498bE555845A6dc331A99E1524C1777"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <AnimatedButton size="lg" className="rounded-full">
-                Buy Now
-              </AnimatedButton>
-            </Link>
+            <div className="flex items-center gap-2">
+              <Link
+                href="https://pancakeswap.finance/swap?outputCurrency=0xd83C128e7498bE555845A6dc331A99E1524C1777"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AnimatedButton size="lg" className="rounded-full">
+                  Buy Now
+                </AnimatedButton>
+              </Link>
+              <Link
+                href="https://www.cyberscope.io/audits/1-utopia"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AnimatedButton size="lg" className="rounded-full">
+                  View Audit Report
+                </AnimatedButton>
+              </Link>
+            </div>
           </div>
         </CardContent>
       </Card>
