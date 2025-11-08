@@ -1,8 +1,8 @@
 import { PageContainer } from "@/components/shared/page-container";
 import { About } from "@/modules/landing/components/about";
 import { BuyToken } from "@/modules/landing/components/buy-token";
+import { Ecosystem } from "@/modules/landing/components/ecosystem";
 import { Hero } from "@/modules/landing/components/hero";
-import { Integrations } from "@/modules/landing/components/integrations";
 
 export default function LandingPage() {
   return (
@@ -10,7 +10,7 @@ export default function LandingPage() {
       <Hero />
       <About />
       <BuyToken />
-      <Integrations />
+      <Ecosystem />
     </PageContainer>
   );
 }

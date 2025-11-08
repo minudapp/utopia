@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Paragraph } from "@/components/ui/paragraph";
 
-export function Integrations() {
+export function Ecosystem() {
   return (
-    <section id="integrations" className="relative overflow-hidden px-4 py-24">
+    <section id="ecosystem" className="relative overflow-hidden px-4 py-24">
       {/* Arctic gradient background */}
       <div className="from-muted to-background absolute inset-0 bg-radial to-75%" />
 
@@ -39,7 +39,7 @@ export function Integrations() {
             className="hover:shadow-primary/25 mt-6 rounded-full px-8 py-4 hover:scale-105 hover:shadow-lg"
             asChild
           >
-            <Link href="/integrations">Explore our Ecosystem</Link>
+            <Link href="/ecosystem">Explore our Ecosystem</Link>
           </Button>
         </div>
       </div>

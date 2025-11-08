@@ -95,8 +95,8 @@ export function Nav() {
                   <Link href="https://docs.utopiabnb.com">Documentation</Link>
                 </li>
                 <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
-                  <Link href="/#integrations" onClick={handleLinkClick}>
-                    Integrations
+                  <Link href="/#ecosystem" onClick={handleLinkClick}>
+                    Ecosystem
                   </Link>
                 </li>
               </ul>
