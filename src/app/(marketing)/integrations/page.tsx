@@ -240,7 +240,7 @@ export default function IntegrationsPage() {
       <Heading className="uppercase">
         Explore Our Partners And Integrations
       </Heading>
-      <Tabs defaultValue="wallets" className="mt-10 items-center">
+      <Tabs defaultValue="all" className="mt-10 items-center">
         <TabsList className="gap-1 bg-transparent">
           <TabsTrigger
             value="all"
