@@ -39,7 +39,7 @@ export function Integrations() {
             className="hover:shadow-primary/25 mt-6 rounded-full px-8 py-4 hover:scale-105 hover:shadow-lg"
             asChild
           >
-            <Link href="/integrations">Explore Partnerships</Link>
+            <Link href="/integrations">Explore our Ecosystem</Link>
           </Button>
         </div>
       </div>

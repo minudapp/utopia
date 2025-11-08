@@ -5,7 +5,6 @@ import { createPublicClient, formatUnits, getContract, http } from "viem";
 import coin from "@/assets/images/coin.png";
 import { AnimatedButton } from "@/components/shared/animated-button";
 import { CopyButton } from "@/components/shared/copy-button";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { Paragraph } from "@/components/ui/paragraph";
@@ -131,9 +130,9 @@ export async function BuyToken() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="secondary" size="lg" className="rounded-full">
+                <AnimatedButton size="lg" className="rounded-full">
                   View Audit Report
-                </Button>
+                </AnimatedButton>
               </Link>
             </div>
           </div>
