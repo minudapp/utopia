@@ -237,9 +237,7 @@ function getCategoryIntegrations(id: CategoryId) {
 export default function IntegrationsPage() {
   return (
     <PageContainer className="py-20 md:py-32">
-      <Heading className="uppercase">
-        Explore Our Partners And Integrations
-      </Heading>
+      <Heading className="uppercase">Explore our Ecosystem</Heading>
       <Tabs defaultValue="all" className="mt-10 items-center">
         <TabsList className="gap-1 bg-transparent">
           <TabsTrigger
