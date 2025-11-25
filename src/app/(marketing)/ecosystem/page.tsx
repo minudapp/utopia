@@ -149,6 +149,9 @@ const integrations = Object.freeze<Integration[]>([
     name: "I'm Token",
     url: "https://token.im",
     icon: "/images/integrations/token-im.png",
+    categoryId: "wallets",
+  },
+  {
     id: "hpx",
     name: "HPX",
     url: "https://www.hpx.com/en",
@@ -244,6 +247,9 @@ const integrations = Object.freeze<Integration[]>([
     name: "GetBlock",
     url: "https://getblock.io/marketplace/projects/utopia",
     icon: "/images/integrations/getblock.png",
+    categoryId: "dapp-analytics",
+  },
+  {
     id: "magicsquare",
     name: "MagicSquare",
     url: "https://magicsquare.io/store/projects/utopia",
