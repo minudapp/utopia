@@ -146,7 +146,7 @@ const integrations = Object.freeze<Integration[]>([
   },
   {
     id: "token-im",
-    name: "I'm Token",
+    name: "imToken",
     url: "https://token.im",
     icon: "/images/integrations/token-im.png",
     categoryId: "wallets",
@@ -300,7 +300,7 @@ const integrations = Object.freeze<Integration[]>([
   },
   {
     id: "li-finance",
-    name: "Li.Finance",
+    name: "LiFi",
     url: "https://li.fi",
     icon: "/images/integrations/li-finance.png",
     categoryId: "x-chain-swap-aggregators",
