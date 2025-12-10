@@ -180,6 +180,20 @@ const integrations = Object.freeze<Integration[]>([
     categoryId: "wallets",
   },
   {
+    id: "dcent-wallet",
+    name: "D'cent Wallet",
+    url: "https://store.dcentwallet.com/pages/supported-coins-and-tokens",
+    icon: "/images/integrations/dcent-wallet.jpeg",
+    categoryId: "wallets",
+  },
+  {
+    id: "kucoin",
+    name: "Kucoin",
+    url: "https://www.kucoin.com/web3/swap?inputCurrency=2&outputCurrency=6578370",
+    icon: "/images/integrations/kucoin.jpg",
+    categoryId: "wallets",
+  },
+  {
     id: "coinmarketcap",
     name: "CoinMarketCap",
     url: "https://coinmarketcap.com/currencies/utopiabnb",
@@ -257,6 +271,13 @@ const integrations = Object.freeze<Integration[]>([
     categoryId: "dapp-analytics",
   },
   {
+    id: "webcatalog",
+    name: "Webcatalog",
+    url: "https://webcatalog.io/en/apps/utopia",
+    icon: "/images/integrations/webcatalog.png",
+    categoryId: "dapp-analytics",
+  },
+  {
     id: "squid-router",
     name: "Squid Router",
     url: "https://app.squidrouter.com",
@@ -303,6 +324,20 @@ const integrations = Object.freeze<Integration[]>([
     name: "LiFi",
     url: "https://li.fi",
     icon: "/images/integrations/li-finance.png",
+    categoryId: "x-chain-swap-aggregators",
+  },
+  {
+    id: "xportal",
+    name: "Xportal",
+    url: "https://xportal.com",
+    icon: "/images/integrations/xportal.png",
+    categoryId: "x-chain-swap-aggregators",
+  },
+  {
+    id: "elk-finance",
+    name: "Elk Finance",
+    url: "https://app.elk.finance/swap/56/BNB/UTOPIA",
+    icon: "/images/integrations/elk-finance.png",
     categoryId: "x-chain-swap-aggregators",
   },
   {
