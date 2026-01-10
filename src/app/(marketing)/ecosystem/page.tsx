@@ -194,6 +194,13 @@ const integrations = Object.freeze<Integration[]>([
     categoryId: "wallets",
   },
   {
+    id: "burrito-wallet",
+    name: "Burrito Wallet",
+    url: "https://www.burritowallet.com/en",
+    icon: "/images/integrations/burrito-wallet.png",
+    categoryId: "wallets",
+  },
+  {
     id: "coinmarketcap",
     name: "CoinMarketCap",
     url: "https://coinmarketcap.com/currencies/utopiabnb",
@@ -233,6 +240,13 @@ const integrations = Object.freeze<Integration[]>([
     name: "BscScan",
     url: "https://bscscan.com/token/0xd83c128e7498be555845a6dc331a99e1524c1777",
     icon: "/images/integrations/bscscan.png",
+    categoryId: "tracking-apps",
+  },
+  {
+    id: "messari",
+    name: "Messari",
+    url: "https://messari.io/project/utopia-bsc",
+    icon: "/images/integrations/messari.png",
     categoryId: "tracking-apps",
   },
   {
@@ -341,6 +355,34 @@ const integrations = Object.freeze<Integration[]>([
     categoryId: "x-chain-swap-aggregators",
   },
   {
+    id: "butter-swap",
+    name: "Butter Swap",
+    url: "https://www.butterswap.io/en/swap?from=56%3ABNB&to=56%3AUTOPIA",
+    icon: "/images/integrations/butter-swap.jpg",
+    categoryId: "x-chain-swap-aggregators",
+  },
+  {
+    id: "1inch",
+    name: "1inch",
+    url: "https://1inch.com",
+    icon: "/images/integrations/1inch.png",
+    categoryId: "x-chain-swap-aggregators",
+  },
+  {
+    id: "fly-swap",
+    name: "Fly Swap",
+    url: "https://app.fly.trade/swap/bsc/BNB/bsc/UTOPIA",
+    icon: "/images/integrations/fly-swap.png",
+    categoryId: "x-chain-swap-aggregators",
+  },
+  {
+    id: "router-protocol",
+    name: "Router Protocol",
+    url: "https://app.routerprotocol.com/?fromChainId=56&fromTokenAddress=native&toChainId=56&toTokenAddress=0xd83c128e7498be555845a6dc331a99e1524c1777",
+    icon: "/images/integrations/router-protocol.png",
+    categoryId: "x-chain-swap-aggregators",
+  },
+  {
     id: "pancakeswap",
     name: "PancakeSwap",
     url: "https://pancakeswap.finance/swap?outputCurrency=0xd83C128e7498bE555845A6dc331A99E1524C1777",
@@ -352,6 +394,13 @@ const integrations = Object.freeze<Integration[]>([
     name: "SushiSwap",
     url: "https://www.sushi.com/bsc/swap?token0=NATIVE&token1=0xd83c128e7498be555845a6dc331a99e1524c1777",
     icon: "/images/integrations/sushiswap.png",
+    categoryId: "dex",
+  },
+  {
+    id: "velora",
+    name: "Velora",
+    url: "https://www.velora.xyz",
+    icon: "/images/integrations/velora.png",
     categoryId: "dex",
   },
   {
