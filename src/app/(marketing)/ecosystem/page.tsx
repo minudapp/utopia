@@ -383,6 +383,27 @@ const integrations = Object.freeze<Integration[]>([
     categoryId: "x-chain-swap-aggregators",
   },
   {
+    id: "xswap",
+    name: "Xswap",
+    url: "https://xswap.link/swap?fromChain=56&toChain=56&fromToken=BNB&toToken=UTOPIA",
+    icon: "/images/integrations/xswap.png",
+    categoryId: "x-chain-swap-aggregators",
+  },
+  {
+    id: "wheelx",
+    name: "WheelX",
+    url: "https://wheelx.fi",
+    icon: "/images/integrations/wheelx.png",
+    categoryId: "x-chain-swap-aggregators",
+  },
+  {
+    id: "cowswap",
+    name: "CoW Swap",
+    url: "https://swap.cow.fi/#/56/swap/BNB/UTOPIA",
+    icon: "/images/integrations/cowswap.png",
+    categoryId: "x-chain-swap-aggregators",
+  },
+  {
     id: "pancakeswap",
     name: "PancakeSwap",
     url: "https://pancakeswap.finance/swap?outputCurrency=0xd83C128e7498bE555845A6dc331A99E1524C1777",
