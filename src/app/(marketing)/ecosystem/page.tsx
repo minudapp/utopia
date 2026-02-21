@@ -47,6 +47,20 @@ interface Integration {
 
 const integrations = Object.freeze<Integration[]>([
   {
+    id: "ledger",
+    name: "Ledger",
+    url: "https://ledger.com",
+    icon: "/images/integrations/ledger.png",
+    categoryId: "wallets",
+  },
+  {
+    id: "gem-wallet",
+    name: "Gem Wallet",
+    url: "https://gemwallet.com/tokens/",
+    icon: "/images/integrations/gem-wallet.png",
+    categoryId: "wallets",
+  },
+  {
     id: "bitget-wallet",
     name: "BitGet Wallet",
     url: "https://web3.bitget.com/en",
