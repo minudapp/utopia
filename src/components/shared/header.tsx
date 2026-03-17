@@ -47,6 +47,14 @@ export function Header({ type, className, ...props }: HeaderProps) {
                 </AnimatedButton>
               </Link>
             )}
+            <a href="https://udegen.io" target="_blank">
+              <AnimatedButton
+                className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
+                size="xl"
+              >
+                uDegen
+              </AnimatedButton>
+            </a>
             <Link href="/dapp">
               <AnimatedButton
                 className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
