@@ -49,20 +49,17 @@ export function Footer({
             <h3 className="text-foreground mb-4 font-semibold">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <ExternalLink
-                  href="https://docs.utopiabnb.com"
-                  className="underline-offset-4 hover:underline"
-                >
+                <a href="/docs" className="underline-offset-4 hover:underline">
                   Documentation
-                </ExternalLink>
+                </a>
               </li>
               <li>
-                <ExternalLink
-                  href="https://docs.utopiabnb.com/help-center"
+                <a
+                  href="/docs/help-center"
                   className="underline-offset-4 hover:underline"
                 >
                   Support
-                </ExternalLink>
+                </a>
               </li>
             </ul>
           </div>

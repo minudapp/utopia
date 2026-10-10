@@ -92,7 +92,7 @@ export function Nav() {
                   <Link href="/dapp">Earn BNB</Link>
                 </li>
                 <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
-                  <Link href="https://docs.utopiabnb.com">Documentation</Link>
+                  <a href="/docs">Documentation</a>
                 </li>
                 <li className="text-foreground text-lg font-extrabold uppercase transition-colors hover:text-[#c5fbff] sm:text-xl md:text-2xl xl:text-4xl">
                   <Link href="/ecosystem" onClick={handleLinkClick}>

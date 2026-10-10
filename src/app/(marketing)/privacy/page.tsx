@@ -30,7 +30,7 @@ export default function PrivacyPage() {
               <Paragraph>
                 Your privacy is extremely important to us. This Privacy Policy
                 explains how we handle your information when you use our website
-                (www.utopiabnb.com) and documentation (docs.utopiabnb.com).
+                (www.utopiabnb.com) and documentation (www.utopiabnb.com/docs).
               </Paragraph>
             </div>
           </Card>

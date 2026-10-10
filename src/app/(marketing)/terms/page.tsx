@@ -38,7 +38,7 @@ export default function TermsPage() {
               <Paragraph>
                 These Terms of Use (&quot;Terms&quot;) govern your access to and
                 use of our website (www.utopiabnb.com), documentation
-                (docs.utopiabnb.com), and any related materials or services.
+                (www.utopiabnb.com/docs), and any related materials or services.
               </Paragraph>
               <Paragraph>
                 By accessing or using our Terms of Use, you agree to be bound by

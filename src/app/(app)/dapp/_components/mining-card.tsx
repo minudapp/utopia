@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { formatEther } from "viem";
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -79,9 +78,9 @@ export function MiningCard(props: React.ComponentProps<typeof Card>) {
         </span>
         <span className="text-muted-foreground text-xs">
           * For a full map and instructions, please consult our:{" "}
-          <Link href="https://docs.utopiabnb.com" target="_blank">
+          <a href="/docs" target="_blank" rel="noopener noreferrer">
             Expedition Manual
-          </Link>
+          </a>
         </span>
       </CardFooter>
     </Card>
