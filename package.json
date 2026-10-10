@@ -62,8 +62,9 @@
     "typescript": "^5.9.2"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": "22.x"
   },
+  "packageManager": "pnpm@10.34.6",
   "browserslist": [
     "chrome >= 111",
     "edge >= 130",
