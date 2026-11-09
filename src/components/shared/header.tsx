@@ -15,7 +15,6 @@ type HeaderProps = React.ComponentProps<"header"> & {
 
 export function Header({ type, className, ...props }: HeaderProps) {
   const pathname = usePathname();
-
   return (
     <header
       style={
