@@ -63,6 +63,14 @@ export function Header({ type, className, ...props }: HeaderProps) {
                 Join the Adventure
               </AnimatedButton>
             </Link>
+            <a href="https://play.utopiabnb.com">
+              <AnimatedButton
+                className="border-background h-10 border-2 px-4 text-base font-semibold md:h-12 md:px-10"
+                size="xl"
+              >
+                Play to Earn
+              </AnimatedButton>
+            </a>
           </>
         )}
 
